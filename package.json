@@ -4,7 +4,7 @@
   "description": "Vujita github page",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean:build": "rimraf build"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/vujita/vujita.github.io/issues"
   },
-  "homepage": "https://github.com/vujita/vujita.github.io#readme"
+  "homepage": "https://github.com/vujita/vujita.github.io#readme",
+  "devDependencies": {
+    "rimraf": "^2.5.2"
+  }
 }

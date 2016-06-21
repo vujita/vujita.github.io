@@ -1,0 +1,19 @@
+{
+  "name": "vujita.github.io",
+  "version": "1.0.0",
+  "description": "Vujita github page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vujita/vujita.github.io.git"
+  },
+  "author": "Vu Nguyen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vujita/vujita.github.io/issues"
+  },
+  "homepage": "https://github.com/vujita/vujita.github.io#readme"
+}

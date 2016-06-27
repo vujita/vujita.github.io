@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/vujita/vujita.github.io#readme",
   "devDependencies": {
+    "babel-preset-es2015": "^6.9.0",
     "rimraf": "^2.5.2"
   }
 }

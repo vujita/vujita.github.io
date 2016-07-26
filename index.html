@@ -1,8 +1,32 @@
+<<<<<<< Updated upstream
+<!DOCTYPE html> <html lang=en> <head> <meta charset=UTF-8> <title>Hi, I am Vu</title> </head> <body> <div id=content> <h1>Hi I am Vu</h1> <h2>Content, coming soon...</h2> </div> <script type="text/javascript" src="/index.670bf3fc58a350c70582.js"></script></body> </html>
+=======
 <!DOCTYPE html>
-<html>
-<head></head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vu Nguyen</title>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
+</head>
 <body>
-    <h1>Hi, I am Vu Nguyen</h1>
-    <h2>Coming soon....</h2>
+<h1>Hi, I am Vu Nguyen</h1>
+<h2>Coming soon...</h2>
+<script type="application/javascript">
+    /**
+     * I need to find another way to keep cache busting working without loading it via js.
+     * It probably needs some configuration trick with webpacks htmlplugin
+     */
+    $(function () {
+        $.getJSON('./dist/manifest.json', function (data) {
+            console.log(data);
+            var s = document.createElement("script");
+            s.type = "text/javascript";
+            s.src = ['./dist/', data['index.js']].join('');
+            $("head").append(s);
+        });
+    });
+</script>
 </body>
 </html>
+>>>>>>> Stashed changes

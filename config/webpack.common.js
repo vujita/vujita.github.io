@@ -11,11 +11,6 @@ var entries = {
 
 module.exports = {
     entry: entries,
-    externals: {
-        // require("jquery") is external and available
-        //  on the global var jQuery, loading via cdn
-        "jquery": "jQuery"
-    },
     module: {
         loaders: [
             {
@@ -40,5 +35,10 @@ module.exports = {
             }
         ]
     },
-    plugins: []
+    plugins: [
+        new HtmlWebackPlugin({
+            template: 'html/index.html',
+            filename: 'index.html'
+        })
+    ]
 }

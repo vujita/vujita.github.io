@@ -1,7 +1,8 @@
 /**
  * Created by vnguyen on 7/25/16.
  */
-var webpack = require('webpack'),
+var path = require('path'),
+    webpack = require('webpack'),
     HtmlWebackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     helpers = require('./helpers')
@@ -14,7 +15,8 @@ module.exports = {
     module: {
         loaders: [
             {
-                test: /\.js/,
+                ttest: /(\.js|\.jsx)$/,
+                exclude: /(node_modules|bower_components)/,
                 loader: 'babel'
             },
             {
@@ -26,14 +28,14 @@ module.exports = {
                 loader: 'file?name=assets/[name].[hash].[ext]'
             },
             {
-                test: /\.css$/,
-                loader: ExtractTextPlugin.extract('style', 'css?sourceMap')
-            },
-            {
-                test: /\.css$/,
-                loader: 'raw'
+                test: /\.(scss|css)$/,
+                loader: ExtractTextPlugin.extract('style', 'css?sourceMap&modules&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass?sourceMap')
             }
         ]
+    },
+    sassLoader: {
+        data: '@import "theme/_config.scss";',
+        includePaths: [path.resolve(__dirname, '../src')]
     },
     plugins: [
         new HtmlWebackPlugin({

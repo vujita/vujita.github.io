@@ -1,0 +1,7 @@
+@import "~react-toolbox/lib/colors";
+$color-primary: $palette-light-blue-300;
+$color-primary-dark: $palette-light-blue-300;
+
+@media screen and (max-width: 480px) {
+  font-size:40px;
+}

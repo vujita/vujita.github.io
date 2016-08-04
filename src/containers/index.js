@@ -1,41 +1,56 @@
 /**
  * Created by vnguyen on 7/26/16.
  */
+import 'react-toolbox/lib/commons.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import darkBaseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
-import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import {AppBar, Drawer, MenuItem, Subheader} from 'material-ui';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+import 'react-toolbox/lib/app_bar/theme.scss';
+import {AppBar, Checkbox, IconButton} from 'react-toolbox';
+import {Layout, NavDrawer, Panel, Sidebar} from 'react-toolbox';
+import style from './index.scss';
+class LayoutTest extends React.Component {
+    state = {
+        drawerActive: false,
+        drawerPinned: false,
+        sidebarPinned: false
+    };
 
-// Needed for onTouchTap
-// http://stackoverflow.com/a/34015469/988941
-injectTapEventPlugin();
-var drawerOpen = false;
-function toggleDrawer() {
-    drawerOpen = !drawerOpen;
-    render();
+    toggleDrawerActive = () => {
+        this.setState({drawerActive: !this.state.drawerActive});
+    };
+
+
+
+    toggleSidebar = () => {
+        this.setState({sidebarPinned: !this.state.sidebarPinned});
+    };
+
+    render() {
+        return (
+            <Layout>
+                <Panel>
+                    <AppBar>
+                        <div className={style.appBarCenterGrow}>
+                            Vu Nguyen
+                        </div>
+                        <IconButton icon='menu' inverse={ true } onClick={ this.toggleSidebar }/>
+                    </AppBar>
+                    <div className={style.mainContainer}>
+                        <b>Coming soon...</b>
+                    </div>
+                </Panel>
+                <Sidebar pinned={ this.state.sidebarPinned } width={ 5 }>
+                    <div><IconButton icon='close' onClick={ this.toggleSidebar }/></div>
+                    <div className={style.sidebar}>
+                        <p>Side bar...all sorts of options being planned out</p>
+                    </div>
+                </Sidebar>
+            </Layout>
+        );
+    }
 }
-const App = () => (
-    <MuiThemeProvider>
-        <div>
-            <AppBar title="Welcome, I am Vu Nguyen"
-                    onLeftIconButtonTouchTap={toggleDrawer}
-                    iconClassNameRight="muidocs-icon-navigation-expand-more">
-            </AppBar>
-            <h2>Coming soon...</h2>
-            <Drawer open={drawerOpen} docked={false}>
-                <MenuItem onTouchTap={toggleDrawer}>Close me...</MenuItem>
-            </Drawer>
-        </div>
-    </MuiThemeProvider>
+
+ReactDOM.render(
+    <LayoutTest/>,
+    document.getElementById("content")
 );
-render();
-
-function render() {
-    ReactDOM.render(
-        <App />,
-        document.getElementById('content')
-    );
-}

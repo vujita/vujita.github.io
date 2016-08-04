@@ -1,0 +1,22 @@
+html, body {
+  height: 100%;
+  & > div {
+    height: 100%;
+    height: 100vh;
+  }
+}
+
+.appBarCenterGrow {
+  padding-left: 1rem;
+  font-size: 2rem;
+  flex-grow: 10000;
+}
+
+.mainContainer {
+  flex: 1;
+  overflowY: auto;
+  padding: 1.8rem;
+}
+.sidebar{
+  flex:1;
+}

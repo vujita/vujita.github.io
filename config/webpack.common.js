@@ -3,6 +3,8 @@
  */
 var path = require('path'),
     webpack = require('webpack'),
+    autoprefixer = require('autoprefixer'),
+    precss = require('precss'),
     HtmlWebackPlugin = require('html-webpack-plugin'),
     ExtractTextPlugin = require('extract-text-webpack-plugin'),
     helpers = require('./helpers')
@@ -36,6 +38,10 @@ module.exports = {
     sassLoader: {
         data: '@import "theme/_config.scss";',
         includePaths: [path.resolve(__dirname, '../src')]
+    },
+
+    postcss: function () {
+        return [autoprefixer, precss];
     },
     plugins: [
         new HtmlWebackPlugin({

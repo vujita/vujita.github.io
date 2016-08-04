@@ -6,7 +6,7 @@
   "scripts": {
     "browser-sync": "browser-sync start -s '.' -f '.'",
     "start": "webpack-dev-server --inline --progress --port 8080",
-    "build:build": "NODE_ENV=production && webpack --config config/webpack.prod.js --progress --profile --bail",
+    "build:build": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "build:clean": "node ./scripts/cleanDistFiles.js",
     "build": "npm run build:clean && npm run build:build"
   },

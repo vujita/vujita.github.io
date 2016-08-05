@@ -6,6 +6,7 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "add-module-exports"
+    "add-module-exports",
+    "transform-decorators-legacy"
   ]
 }

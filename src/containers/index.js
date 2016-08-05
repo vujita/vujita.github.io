@@ -1,56 +1,32 @@
 /**
  * Created by vnguyen on 7/26/16.
  */
-import 'react-toolbox/lib/commons.scss';
-import React from 'react';
-import ReactDOM from 'react-dom';
-import 'react-toolbox/lib/app_bar/theme.scss';
-import {AppBar, Checkbox, IconButton} from 'react-toolbox';
-import {Layout, NavDrawer, Panel, Sidebar} from 'react-toolbox';
-import style from './index.scss';
-class LayoutTest extends React.Component {
-    state = {
-        drawerActive: false,
-        drawerPinned: false,
-        sidebarPinned: false
-    };
+//React
+import React, {Component, PropTypes} from 'react';
+import {render} from 'react-dom';
+//React redux, router
+import {Provider} from 'react-redux'
+import {Router, Route, useRouterHistory, IndexRoute} from 'react-router'
+import {syncHistoryWithStore} from 'react-router-redux'
+import createHashHistory from 'history/lib/createHashHistory'
+//My Stuff
+import store from '../stores/createStore';
+import MainLayout from '../components/MainLayout'
+// Create an enhanced history that syncs navigation events with the store
+const history = syncHistoryWithStore(
+    useRouterHistory(createHashHistory)({queryKey: false}),
+    store
+);
 
-    toggleDrawerActive = () => {
-        this.setState({drawerActive: !this.state.drawerActive});
-    };
-
-
-
-    toggleSidebar = () => {
-        this.setState({sidebarPinned: !this.state.sidebarPinned});
-    };
-
-    render() {
-        return (
-            <Layout>
-                <Panel>
-                    <AppBar>
-                        <div className={style.appBarCenterGrow}>
-                            Vu Nguyen
-                        </div>
-                        <IconButton icon='menu' inverse={ true } onClick={ this.toggleSidebar }/>
-                    </AppBar>
-                    <div className={style.mainContainer}>
-                        <b>Coming soon...</b>
-                    </div>
-                </Panel>
-                <Sidebar pinned={ this.state.sidebarPinned } width={ 5 }>
-                    <div><IconButton icon='close' onClick={ this.toggleSidebar }/></div>
-                    <div className={style.sidebar}>
-                        <p>Side bar...all sorts of options being planned out</p>
-                    </div>
-                </Sidebar>
-            </Layout>
-        );
-    }
-}
-
-ReactDOM.render(
-    <LayoutTest/>,
+render(
+    <Provider store={store}>
+        <Router history={history}>
+            <Route path="/" component={MainLayout}>
+                <IndexRoute path="" component={()=><h4>Coming soon...</h4>}/>
+                {/** TODO:PUT a 404 COMPONENT IN*/}
+                <Route path="*" component={()=><h1 style={{color:'red'}}>Invalid path</h1>}/>
+            </Route>
+        </Router>
+    </Provider>,
     document.getElementById("content")
 );

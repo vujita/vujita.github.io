@@ -10,6 +10,24 @@ html, body {
   padding-left: 1rem;
   font-size: 2rem;
   flex-grow: 10000;
+  text-align: center;
+}
+
+.mainContainer:before {
+  content: ' ';
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  opacity: 0.6;
+  //This is really just a test to see how it looks, I will be replacing this and moving this to a component below
+  background-image: url('http://www.tipue.com/img/jetty.jpg');
+  background-repeat: no-repeat;
+  background-position: 50% 0;
+  background-size: cover;
 }
 
 .mainContainer {
@@ -17,6 +35,22 @@ html, body {
   overflow-y: auto;
   padding: 1.8rem;
 }
-.sidebar{
-  flex:1;
+.sidebar {
+  flex: 1;
+}
+
+.sideBaCloseBtn {
+  float: right;
+}
+
+.activeLink{
+  font-weight: bolder;
+  color:#4078c0;
+}
+.followMeIcons{
+  padding:1rem;
+  font-size:16px;
+  &:hover{
+    background-color: rgba(21,21,21,.5);
+  }
 }

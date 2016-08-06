@@ -4,7 +4,7 @@
   "description": "Vujita github page",
   "main": "index.js",
   "scripts": {
-    "browser-sync": "browser-sync start -s '.' -f '.'",
+    "browser-sync": "browser-sync start -s . -f .",
     "start": "webpack-dev-server --inline --progress --port 8080",
     "build:build": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "build:clean": "node ./scripts/cleanDistFiles.js",

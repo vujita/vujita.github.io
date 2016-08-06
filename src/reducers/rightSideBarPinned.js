@@ -3,7 +3,7 @@
  */
 import {TOGGLE_RIGHT_SIDE_BAR} from '../constants/actionTypes';
 
-export default function (state = true, action = {type: ''}) {
+export default function (state = false, action = {type: ''}) {
     let {type} = action;
     switch (type) {
         case TOGGLE_RIGHT_SIDE_BAR:

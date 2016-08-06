@@ -3,13 +3,13 @@
  */
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux';
 import {routerReducer} from 'react-router-redux';
-import rightSideBarCollapsed from '../reducers/rightSideBarPinned';
+import rightSideBarPinned from '../reducers/rightSideBarPinned';
 import loggerMiddleware from '../middlewares/logger';
 import crashReporter from '../middlewares/crashReporter';
 
 const rootReducer = combineReducers({
     routing: routerReducer,
-    rightSideBarCollapsed
+    rightSideBarPinned
 });
 //May load this in another fashion
 const initialState = {};

@@ -6,7 +6,7 @@ import React, {Component, PropTypes} from 'react';
 import {render} from 'react-dom';
 //React redux, router
 import {Provider} from 'react-redux'
-import {Router, Route, useRouterHistory, IndexRoute} from 'react-router'
+import {Router, Route, useRouterHistory, IndexRedirect } from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 import createHashHistory from 'history/lib/createHashHistory'
 //My Stuff
@@ -22,9 +22,11 @@ render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={MainLayout}>
-                <IndexRoute path="" component={()=><h4>Coming soon...</h4>}/>
+                <Route path="Home" component={()=><h4>Coming soon...</h4>}/>
                 {/** TODO:PUT a 404 COMPONENT IN*/}
-                <Route path="*" component={()=><h1 style={{color:'red'}}>Invalid path</h1>}/>
+                <Route path="*" component={()=><h2 style={{color:'red'}}>Invalid path</h2>}/>
+
+                <IndexRedirect to="/Home"/>
             </Route>
         </Router>
     </Provider>,

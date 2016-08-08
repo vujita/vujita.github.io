@@ -11,7 +11,8 @@ import {Layout, Panel, Sidebar} from 'react-toolbox/lib/layout';
 import {List, ListItem} from 'react-toolbox/lib/list';
 import {toggleRightSideBar} from '../../actions';
 import style from './mainLayout.scss';
-console.log(ReactCSSTransitionGroup)
+
+
 const mapStateToProps = (state) => ({
     rightSideBarPinned: state.rightSideBarPinned
 });

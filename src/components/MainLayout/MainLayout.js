@@ -49,6 +49,8 @@ export default class MainLayout extends Component {
                                                  transitionName={"page-transition"}
                                                  transitionEnterTimeout={500}
                                                  transitionLeaveTimeout={500}
+                                                 transitionAppear={true}
+                                                 transitionAppearTimeout={500}
                         >
                             {React.cloneElement(children, {
                                 key: location.pathname

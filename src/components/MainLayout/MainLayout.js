@@ -47,6 +47,7 @@ export default class MainLayout extends Component {
                     </AppBar>
                     <div className={style.mainContainer}>
                         <ReactCSSTransitionGroup component="div"
+                                                 className={style.mainWrapper}
                                                  transitionName={"page-transition"}
                                                  transitionEnterTimeout={500}
                                                  transitionLeaveTimeout={500}

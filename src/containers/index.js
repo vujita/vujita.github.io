@@ -12,6 +12,7 @@ import createHashHistory from 'history/lib/createHashHistory'
 //My Stuff
 import store from '../stores/createStore';
 import MainLayout from '../components/MainLayout'
+import PageNotFound from '../components/PageNotFound';
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(
     useRouterHistory(createHashHistory)({queryKey: false}),
@@ -24,7 +25,7 @@ render(
             <Route path="/" component={MainLayout}>
                 <Route path="Home" component={()=><h4>Coming soon...</h4>}/>
                 {/** TODO:PUT a 404 COMPONENT IN*/}
-                <Route path="*" component={()=><h2 style={{color:'red'}}>Invalid path</h2>}/>
+                <Route path="*" component={PageNotFound}/>
 
                 <IndexRedirect to="/Home"/>
             </Route>

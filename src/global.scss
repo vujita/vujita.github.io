@@ -1,5 +1,13 @@
 //Have to give the few things that must be global homes
 :global {
+  //Add this for full viewport, and a fallback
+  html, body {
+    height: 100%;
+    & > div#content {
+      height: 100%;
+      height: 100vh;
+    }
+  }
   //Transitions. The React Transition Group seems to be one of the tough ones to use as a css module due to the conventions
   .page-transition-enter {
     transition: opacity 0.3s ease-in-out;

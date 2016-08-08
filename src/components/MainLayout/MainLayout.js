@@ -2,35 +2,42 @@
  * Created by vnguyen on 8/5/16.
  */
 import React, {Component, PropTypes} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {connect} from 'react-redux';
 import 'react-toolbox/lib/commons.scss';
 import {AppBar} from 'react-toolbox/lib/app_bar';
 import {IconButton} from 'react-toolbox/lib/button';
 import {Layout, Panel, Sidebar} from 'react-toolbox/lib/layout';
 import {List, ListItem} from 'react-toolbox/lib/list';
-import {Link} from 'react-router';
 import {toggleRightSideBar} from '../../actions';
-import style from './index.scss';
-const mapStateToProps = (state) => state;
+import style from './mainLayout.scss';
+console.log(ReactCSSTransitionGroup)
+const mapStateToProps = (state) => ({
+    rightSideBarPinned: state.rightSideBarPinned
+});
 const mapDispatchToProps = (dispatch) => ({
     onToggleSidebar: ()=> dispatch(toggleRightSideBar())
 });
 const linkToPages = [
     {
-        to: 'Home',
+        to: '#/Home',
         text: 'Home'
     }, {
-        to: 'ShouldNotBeHere',
+        to: '#/ShouldNotBeHere',
         text: 'Link to nowhere!'
+    }, {
+        to: '/stats.html',
+        text: 'View Dependencies'
     }
 ];
 @connect(mapStateToProps, mapDispatchToProps)
 export default class MainLayout extends Component {
     render() {
-        let {children, rightSideBarPinned, onToggleSidebar} = this.props;
+        let {children, location, history, router, rightSideBarPinned, onToggleSidebar} = this.props;
+        console.log(this.props, this.context);
         return (
             <Layout>
-                <Panel>
+                <Panel scrollY={true}>
                     <AppBar>
                         <div className={style.appBarCenterGrow}>
                             {"{ Vu Nguyen }"}
@@ -38,19 +45,20 @@ export default class MainLayout extends Component {
                         <IconButton icon='menu' inverse={ true } onClick={ onToggleSidebar }/>
                     </AppBar>
                     <div className={style.mainContainer}>
-                        <ul>
-                            {linkToPages.map((lo)=>(
-                                <li>
-                                    <Link to={lo.to} activeClassName={style.activeLink}>{lo.text}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                        {children}
+                        <ReactCSSTransitionGroup component="div"
+                                                 transitionName={"page-transition"}
+                                                 transitionEnterTimeout={500}
+                                                 transitionLeaveTimeout={500}
+                        >
+                            {React.cloneElement(children, {
+                                key: location.pathname
+                            })}
+                        </ReactCSSTransitionGroup>
                     </div>
                     <AppBar>
                         <div>
                             <a href="https://github.com/vujita/vujita.github.io" target="_blank">
-                                {"View code"}
+                                {"{ View code }"}
                             </a>
                         </div>
                         <div className={style.appBarCenterGrow}>
@@ -60,7 +68,8 @@ export default class MainLayout extends Component {
                                alt="Github!!!">
                                 <i className="fa fa-github fa-inverse"/>
                             </a>
-                            <a className={style.followMeIcons} href="https://github.com/vujita" target="_blank"
+                            <a className={style.followMeIcons} href="http://stackoverflow.com/users/483631/vu-nguyen"
+                               target="_blank"
                                alt="StackOverflow!!!">
                                 <i className="fa fa-stack-overflow fa-inverse"/>
                             </a>
@@ -79,19 +88,20 @@ export default class MainLayout extends Component {
                 <Sidebar pinned={ rightSideBarPinned } width={ 50 }>
                     <AppBar>
                         <div className={style.appBarCenterGrow}>
-                            {"- Site Menu -"}
+                            {"{ Site Menu }"}
                         </div>
                         <IconButton icon='close' inverse={ true } onClick={ onToggleSidebar }/>
                     </AppBar>
                     <div className={style.sidebar}>
                         <List selectable ripple>
-                            {linkToPages.map((lo, i)=>(
-                                <ListItem to={`#/${lo.to}`} key={`link-topages-${i}`}
-                                          key={`list-item-key-${i}`}
-                                          onClick={onToggleSidebar}>
-                                    <Link to={lo.to} activeClassName={style.activeLink}>
-                                        {lo.text}
-                                    </Link>
+                            {linkToPages.map((lo, i)=> (
+                                <ListItem key={`link-topages-${i}`}
+                                          to={lo.to}
+                                          disabled={lo.to.substr(1)===location.pathname}
+                                          onClick={()=>{
+                                                  onToggleSidebar();
+                                              }}
+                                          caption={lo.text}>
                                 </ListItem>
                             ))}
                         </List>

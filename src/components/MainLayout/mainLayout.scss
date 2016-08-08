@@ -1,0 +1,45 @@
+@import '../../global.scss';
+
+html, body {
+  height: 100%;
+  & > div {
+    height: 100%;
+    height: 100vh;
+  }
+}
+
+.appBarCenterGrow {
+  padding-left: 1rem;
+  font-size: 2rem;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.mainContainer {
+  flex: 1;
+  overflow-y: auto;
+}
+
+.sidebar {
+  flex: 1;
+}
+
+.sideBaCloseBtn {
+  float: right;
+}
+
+.activeLink {
+  font-weight: bolder;
+  color: #4078c0;
+}
+
+.followMeIcons {
+  padding: 1rem;
+  font-size: 16px;
+  &:hover {
+    background-color: rgba(21, 21, 21, .5);
+  }
+}
+
+
+

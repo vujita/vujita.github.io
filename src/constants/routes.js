@@ -2,13 +2,13 @@
  * Created by vnguyen on 8/8/16.
  */
 
-export const HOME = 'Home';
+export const HOME = 'HOME';
 
-export const ABOUT = 'About';
+export const ABOUT = 'ABOUT';
 
-export const EXPERIENCE = 'Experience';
+export const EXPERIENCE = 'EXPERIENCE';
 
-export const CONTACT = 'Contact';
+export const CONTACT = 'CONTACT';
 
 export default {
     HOME,
@@ -17,9 +17,9 @@ export default {
     CONTACT
 }
 
-export const friendlyNames = {
-    HOME: 'Home',
-    ABOUT: 'About me!',
-    EXPERIENCE: 'My experience',
-    CONTACT: 'Contact me!'
-}
+export const friendlyNames = {};
+
+friendlyNames[HOME] = 'Home';
+friendlyNames[ABOUT] = 'About me!';
+friendlyNames[EXPERIENCE] = 'My Experience';
+friendlyNames[CONTACT] = 'Contact me!';

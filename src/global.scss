@@ -10,10 +10,9 @@
   }
   //Transitions. The React Transition Group seems to be one of the tough ones to use as a css module due to the conventions
   .page-transition-enter ,.page-transition-appear{
-    transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.5s ease-in-out;
     opacity: 0;
     position: absolute;
-    transition-delay: 0.4s;
   }
 
   .page-transition-enter.page-transition-enter-active {

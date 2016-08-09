@@ -5,12 +5,21 @@ import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import style from './home.scss';
 
+const mapStateToProps = (state) => ({});
+const mapDispatchToProps = (dispatch) => ({});
+@connect(mapStateToProps, mapDispatchToProps)
 export default class Home extends Component {
     render() {
-        //TODO:MAKE THIS MORE MEANINGFUL
+        console.log(this.props);
         return (
-            <div>
-                <h1>No place like home!!!</h1>
+            <div className={style.homeContainer}>
+                <div className={style.profile}>
+                    <img src="/images/profile.jpg"/>
+                    <div className={style.profileDescription}>
+                        <p><b>Vu Nguyen</b></p>
+                        <p>Software Engineer</p>
+                    </div>
+                </div>
             </div>
         );
     }

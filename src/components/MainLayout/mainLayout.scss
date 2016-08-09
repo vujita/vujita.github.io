@@ -11,16 +11,15 @@
   flex: 1;
   overflow-y: auto;
 }
-.mainWrapper{
+
+.mainWrapper {
   height: 100%;
   width: 100%;
 }
-.sidebar {
-  flex: 1;
-}
 
-.sideBaCloseBtn {
-  float: right;
+.sidebar {
+  margin-top: -0.8rem;
+  flex: 1;
 }
 
 .activeLink {

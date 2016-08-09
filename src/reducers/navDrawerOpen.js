@@ -7,7 +7,10 @@ export default function (state = false, action = {type: ''}) {
     let {type} = action;
     switch (type) {
         case TOGGLE_RIGHT_SIDE_BAR:
-            state = !state;
+            return !state;
+        case "@@router/LOCATION_CHANGE":
+            return false;
+
     }
     return state;
 }

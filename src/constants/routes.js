@@ -4,12 +4,22 @@
 
 export const HOME = 'Home';
 
-export const ABOUT = 'About me';
+export const ABOUT = 'About';
 
 export const EXPERIENCE = 'Experience';
+
+export const CONTACT = 'Contact';
 
 export default {
     HOME,
     ABOUT,
-    EXPERIENCE
+    EXPERIENCE,
+    CONTACT
+}
+
+export const friendlyNames = {
+    HOME: 'Home',
+    ABOUT: 'About me!',
+    EXPERIENCE: 'My experience',
+    CONTACT: 'Contact me!'
 }

@@ -10,9 +10,11 @@ import {Router, Route, useRouterHistory, IndexRedirect} from 'react-router'
 import {syncHistoryWithStore} from 'react-router-redux'
 import createHashHistory from 'history/lib/createHashHistory'
 //My Stuff
-import {HOME} from '../constants/routes';
+import {HOME, ABOUT, EXPERIENCE} from '../constants/routes';
 import store from '../stores/createStore';
 import MainLayout from '../components/MainLayout'
+import HomeCmp from '../components/Home';
+import AboutCmp from '../components/About';
 import PageNotFound from '../components/PageNotFound';
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(
@@ -24,8 +26,8 @@ render(
     <Provider store={store}>
         <Router history={history}>
             <Route path="/" component={MainLayout}>
-                <Route path={HOME} component={()=><h4>Coming soon...</h4>}/>
-                {/** TODO:PUT a 404 COMPONENT IN*/}
+                <Route path={HOME} component={HomeCmp}/>
+                <Route path={ABOUT} component={AboutCmp}/>
                 <Route path="*" component={PageNotFound}/>
 
                 <IndexRedirect to={HOME}/>

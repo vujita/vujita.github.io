@@ -12,7 +12,7 @@ import {toggleRightSideBar} from '../../actions';
 import MainHeader from './MainHeader';
 import MainFooter from './MainFooter';
 import style from './mainLayout.scss';
-import routes from '../../constants/routes';
+import routes, {friendlyNames as routeFriendlyNames} from '../../constants/routes';
 
 const mapStateToProps = (state) => ({
     navDrawerOpen: state.navDrawerOpen
@@ -33,7 +33,7 @@ export default class MainLayout extends Component {
                                 <ListItem to={`#${k.toLowerCase()}`}
                                           key={`link-to-${v}`}
                                           disabled={v.toLowerCase() === location.pathname.substr(1).toLowerCase()}>
-                                    <span>{v}</span>
+                                    <span>{routeFriendlyNames[k]}</span>
                                 </ListItem>
                             )
                             return ListItems;

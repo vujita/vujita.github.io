@@ -14,7 +14,7 @@ export default class Home extends Component {
         return (
             <div className={style.homeContainer}>
                 <div className={style.profile}>
-                    <img src="/images/profile.jpg"/>
+                    <img className={style.profileImg}/>
                     <div className={style.profileDescription}>
                         <p><b>Vu Nguyen</b></p>
                         <p>Software Engineer</p>

@@ -11,7 +11,7 @@
     height: 100%;
     z-index: -1;
     opacity: .2;
-    background-image: url('/images/background/code-sublime.jpg');
+    background-image: url('./../../../images/background/code-sublime.jpg');
     background-repeat: no-repeat;
     background-position: 50% 0;
     background-size: cover;
@@ -20,11 +20,11 @@
 }
 
 .computerBackground {
-  background-image: url('/images/background/computer.svg');
+  background-image: url('./../../../images/background/computer.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 30rem;
+  height: 30%;
   content: '  '
 }
 
@@ -34,13 +34,14 @@
   margin: auto;
   padding-top: 5%;
   img {
+    content: url("../../../images/profile.jpg");
     border-radius: 50%;
     max-height: 40%;
     max-width: 60%;
   }
   .profileDescription {
     font-family: montserrat;
-    & p{
+    & p {
       font-size: 2rem;
     }
   }

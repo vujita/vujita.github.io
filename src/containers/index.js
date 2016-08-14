@@ -29,7 +29,6 @@ render(
                 <Route path={HOME} component={HomeCmp}/>
                 <Route path={ABOUT} component={AboutCmp}/>
                 <Route path="*" component={PageNotFound}/>
-
                 <IndexRedirect to={HOME}/>
             </Route>
         </Router>

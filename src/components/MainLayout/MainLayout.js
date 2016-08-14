@@ -2,105 +2,66 @@
  * Created by vnguyen on 8/5/16.
  */
 import React, {Component, PropTypes} from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {connect} from 'react-redux';
 import 'react-toolbox/lib/commons.scss';
-import {AppBar} from 'react-toolbox/lib/app_bar';
-import {IconButton} from 'react-toolbox/lib/button';
-import {Layout, Panel, Sidebar} from 'react-toolbox/lib/layout';
+import {reduce} from 'lodash';
+import {Layout, NavDrawer, Panel} from 'react-toolbox/lib/layout';
 import {List, ListItem} from 'react-toolbox/lib/list';
-import {Link} from 'react-router';
 import {toggleRightSideBar} from '../../actions';
-import style from './index.scss';
-const mapStateToProps = (state) => state;
+import MainHeader from './MainHeader';
+import MainFooter from './MainFooter';
+import style from './mainLayout.scss';
+import routes, {friendlyNames as routeFriendlyNames} from '../../constants/routes';
+
+const mapStateToProps = (state) => ({
+    navDrawerOpen: state.navDrawerOpen
+});
 const mapDispatchToProps = (dispatch) => ({
     onToggleSidebar: ()=> dispatch(toggleRightSideBar())
 });
-const linkToPages = [
-    {
-        to: 'Home',
-        text: 'Home'
-    }, {
-        to: 'ShouldNotBeHere',
-        text: 'Link to nowhere!'
-    }
-];
 @connect(mapStateToProps, mapDispatchToProps)
 export default class MainLayout extends Component {
     render() {
-        let {children, rightSideBarPinned, onToggleSidebar} = this.props;
+        let {children, location, navDrawerOpen, onToggleSidebar} = this.props;
         return (
             <Layout>
-                <Panel>
-                    <AppBar>
-                        <div className={style.appBarCenterGrow}>
-                            {"{ Vu Nguyen }"}
-                        </div>
-                        <IconButton icon='menu' inverse={ true } onClick={ onToggleSidebar }/>
-                    </AppBar>
-                    <div className={style.mainContainer}>
-                        <ul>
-                            {linkToPages.map((lo)=>(
-                                <li>
-                                    <Link to={lo.to} activeClassName={style.activeLink}>{lo.text}</Link>
-                                </li>
-                            ))}
-                        </ul>
-                        {children}
-                    </div>
-                    <AppBar>
-                        <div>
-                            <a href="https://github.com/vujita/vujita.github.io" target="_blank">
-                                {"View code"}
-                            </a>
-                        </div>
-                        <div className={style.appBarCenterGrow}>
-                        </div>
-                        <div>
-                            <a className={style.followMeIcons} href="https://github.com/vujita" target="_blank"
-                               alt="Github!!!">
-                                <i className="fa fa-github fa-inverse"/>
-                            </a>
-                            <a className={style.followMeIcons} href="https://github.com/vujita" target="_blank"
-                               alt="StackOverflow!!!">
-                                <i className="fa fa-stack-overflow fa-inverse"/>
-                            </a>
-                            <a className={style.followMeIcons}
-                               href="https://www.linkedin.com/in/vu-nguyen-462b29a?trk=nav_responsive_tab_profile"
-                               target="_blank" alt="LinkedIn!!!">
-                                <i className="fa fa-linkedin fa-inverse"/>
-                            </a>
-                            <a className={style.followMeIcons} href="https://twitter.com/Vu_Man_Chu" target="_blank"
-                               alt="Twitter, even though I don't use it!!!">
-                                <i className="fa fa-twitter fa-inverse"/>
-                            </a>
-                        </div>
-                    </AppBar>
-                </Panel>
-                <Sidebar pinned={ rightSideBarPinned } width={ 50 }>
-                    <AppBar>
-                        <div className={style.appBarCenterGrow}>
-                            {"- Site Menu -"}
-                        </div>
-                        <IconButton icon='close' inverse={ true } onClick={ onToggleSidebar }/>
-                    </AppBar>
-                    <div className={style.sidebar}>
-                        <List selectable ripple>
-                            {linkToPages.map((lo, i)=>(
-                                <ListItem to={`#/${lo.to}`} key={`link-topages-${i}`}
-                                          key={`list-item-key-${i}`}
-                                          onClick={onToggleSidebar}>
-                                    <Link to={lo.to} activeClassName={style.activeLink}>
-                                        {lo.text}
-                                    </Link>
+                <NavDrawer active={navDrawerOpen} onOverlayClick={onToggleSidebar}>
+                    <List selectable ripple>
+                        {reduce(routes, (ListItems, v, k)=> {
+                            ListItems.push(
+                                <ListItem to={`#${k.toLowerCase()}`}
+                                          key={`link-to-${v}`}
+                                          disabled={v.toLowerCase() === location.pathname.substr(1).toLowerCase()}>
+                                    <span>{routeFriendlyNames[k]}</span>
                                 </ListItem>
-                            ))}
-                        </List>
+                            )
+                            return ListItems;
+                        }, [])}
+                    </List>
+                </NavDrawer>
+                <Panel scrollY={true}>
+                    <MainHeader onToggleSideBar={onToggleSidebar}/>
+                    <div className={style.mainContainer}>
+                        <ReactCSSTransitionGroup component="div"
+                                                 className={style.mainWrapper}
+                                                 transitionName={"page-transition"}
+                                                 transitionEnterTimeout={600}
+                                                 transitionLeaveTimeout={300}
+                                                 transitionAppear={true}
+                                                 transitionAppearTimeout={500}>
+                            {React.cloneElement(children, {
+                                key: location.pathname
+                            })}
+                        </ReactCSSTransitionGroup>
                     </div>
-                </Sidebar>
+                    <MainFooter/>
+                </Panel>
             </Layout>
         );
     }
 }
+
 MainLayout.childContextTypes = {
     store: PropTypes.object
 };

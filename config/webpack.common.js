@@ -29,7 +29,7 @@ module.exports = {
                 test: /\.(png|jpe?g|gif|svg|woff|woff2|ttf|eot|ico)$/,
                 loaders: [
                     'file?name=assets/[name].[hash].[ext]',
-                    'webp'
+                    'image-webpack'
                 ]
             },
             {
@@ -42,7 +42,22 @@ module.exports = {
         data: '@import "theme/_config.scss";',
         includePaths: [path.resolve(__dirname, '../src')]
     },
-
+    imageWebpackLoader: {
+        pngquant: {
+            quality: "65-90",
+            speed: 4
+        },
+        svgo: {
+            plugins: [
+                {
+                    removeViewBox: false
+                },
+                {
+                    removeEmptyAttrs: false
+                }
+            ]
+        }
+    },
     postcss: function () {
         return [autoprefixer, precss];
     },

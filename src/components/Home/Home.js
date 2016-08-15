@@ -4,6 +4,7 @@
 import React, {PropTypes, Component} from 'react';
 import {connect} from 'react-redux';
 import style from './home.scss';
+import profileImage from '../../../images/profile.jpg';
 
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({});
@@ -14,7 +15,7 @@ export default class Home extends Component {
         return (
             <div className={style.homeContainer}>
                 <div className={style.profile}>
-                    <img className={style.profileImg}/>
+                    <img className={style.profileImg} src={profileImage}/>
                     <div className={style.profileDescription}>
                         <p><b>Vu Nguyen</b></p>
                         <p>Software Engineer</p>

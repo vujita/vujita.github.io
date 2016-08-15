@@ -20,6 +20,6 @@ export default {
 export const friendlyNames = {};
 
 friendlyNames[HOME] = 'Home';
-friendlyNames[ABOUT] = 'About me!';
-friendlyNames[EXPERIENCE] = 'My Experience';
-friendlyNames[CONTACT] = 'Contact me!';
+friendlyNames[ABOUT] = 'About Me';
+friendlyNames[EXPERIENCE] = 'Experience';
+friendlyNames[CONTACT] = 'Contact Me';

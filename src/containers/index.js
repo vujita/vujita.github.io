@@ -29,7 +29,7 @@ render(
                 <Route path={HOME} component={HomeCmp}/>
                 <Route path={ABOUT} component={AboutCmp}/>
                 <Route path="*" component={PageNotFound}/>
-                <IndexRedirect to={HOME}/>
+                <IndexRedirect to={HOME.toLowerCase()}/>
             </Route>
         </Router>
     </Provider>,

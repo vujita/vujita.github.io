@@ -10,22 +10,24 @@ import profileImage from '../../../images/profile.jpg';
 
 const mapStateToProps = (state) => ({});
 const mapDispatchToProps = (dispatch) => ({});
+
+const navLinks = [];
+for (var k in routes) {
+    if (k != routes.HOME) {
+        console.log(k);
+        navLinks.push(
+            <Link to={k.toLowerCase()} key={k}>
+                <li>
+                    {friendlyNames[k]}
+                </li>
+            </Link>
+        );
+    }
+}
+
 @connect(mapStateToProps, mapDispatchToProps)
 export default class Home extends Component {
     render() {
-        let navLinks = [];
-        for (var k in routes) {
-            if (k != routes.HOME) {
-                console.log(k);
-                navLinks.push(
-                    <Link to={k} key={k}>
-                        <li>
-                            {friendlyNames[k]}
-                        </li>
-                    </Link>
-                );
-            }
-        }
         return (
             <div className={style.homeContainer}>
                 <img className={style.profileImg} src={profileImage}/>

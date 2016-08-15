@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Page not found</title>
+    <script type="text/javascript">
+        /////////////////////////////////////////////////////////////////////////
+        // Single Page Apps for GitHub Pages
+        // https://github.com/rafrex/spa-github-pages
+        // Copyright (c) 2016 Rafael Pedicini, licensed under the MIT License
+        // ----------------------------------------------------------------------
+        // This script takes the current url and converts the path and query
+        // string into just a query string, and then redirects the browser
+        // to the new url with only a query string and hash fragment,
+        // e.g. http://www.foo.tld/one/two?a=b&c=d#qwe, becomes
+        // http://www.foo.tld/?p=/one/two&q=a=b~and~c=d#qwe
+        // Note: this 404.html file must be at least 512 bytes for it to work
+        // with Internet Explorer (it is currently > 512 bytes)
+        /////////////////////////////////////////////////////////////////////////
+        var location = window.location;
+        location.replace(
+                location.protocol + '//' + location.hostname + (location.port ? ':' + location.port : '') +
+                '/?' +
+                (location.pathname ? 'p=' + location.pathname.replace(/&/g, '~and~') : '') +
+                (location.search ? '&q=' + location.search.slice(1).replace(/&/g, '~and~') : '') +
+                location.hash
+        );
+    </script>
+</head>
+<body>
+
+</body>
+</html>

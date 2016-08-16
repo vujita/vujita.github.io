@@ -24,6 +24,7 @@ const mapDispatchToProps = (dispatch) => ({
 export default class MainLayout extends Component {
     render() {
         let {children, location, navDrawerOpen, onToggleSidebar} = this.props;
+        console.log(location.pathname);
         return (
             <Layout>
                 <NavDrawer active={navDrawerOpen} onOverlayClick={onToggleSidebar}>
@@ -51,7 +52,7 @@ export default class MainLayout extends Component {
                                                  transitionAppear={true}
                                                  transitionAppearTimeout={500}>
                             {React.cloneElement(children, {
-                                key: location.pathname
+                                key: location.pathname.replace(/\//g, '')
                             })}
                         </ReactCSSTransitionGroup>
                     </div>

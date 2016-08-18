@@ -63,8 +63,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebackPlugin({
-            template: 'html/index.html',
-            filename: 'index.html'
+            template: 'index.html'
         })
     ]
 }

@@ -16,6 +16,7 @@ import MainLayout from '../components/MainLayout'
 import HomeCmp from '../components/Home';
 import ContactCmp from '../components/Contact';
 import AboutCmp from '../components/About';
+import ExperienceCmp from '../components/Experience';
 import PageNotFound from '../components/PageNotFound';
 // Create an enhanced history that syncs navigation events with the store
 const history = syncHistoryWithStore(
@@ -30,6 +31,7 @@ render(
                 <Route path={HOME} component={HomeCmp}/>
                 <Route path={ABOUT} component={AboutCmp}/>
                 <Route path={CONTACT} components={ContactCmp}/>
+                <Route path={EXPERIENCE} components={ExperienceCmp}/>
                 <Route path="*" component={PageNotFound}/>
                 <IndexRedirect to={HOME.toLowerCase()}/>
             </Route>

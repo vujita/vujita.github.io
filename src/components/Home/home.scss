@@ -63,6 +63,7 @@
     background-color: rgba(33, 33, 33, 1);
     font-size: 2rem;
     &:hover {
+      transition: all 0.5s;
       line-height: 6rem;
       height: 6rem;
       background-color: rgba(33, 33, 33, .8);

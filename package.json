@@ -9,7 +9,9 @@
     "build:build": "webpack --config config/webpack.prod.js --progress --profile --bail",
     "build:clean": "rimraf dist",
     "build": "npm run build:clean && npm run build:build",
-    "deploy": "npm run build && node publishGhPages.js"
+    "deploy": "npm run build && node publishGhPages.js",
+    "lint": "eslint src",
+    "lint:fix": "eslint --fix src"
   },
   "repository": {
     "type": "git",
@@ -24,6 +26,7 @@
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "babel-core": "^6.11.4",
+    "babel-eslint": "^7.1.1",
     "babel-loader": "^6.2.4",
     "babel-plugin-add-module-exports": "^0.2.1",
     "babel-plugin-transform-class-properties": "^6.11.5",
@@ -33,6 +36,11 @@
     "browser-sync": "^2.13.0",
     "css-loader": "^0.23.1",
     "del": "^2.2.1",
+    "eslint": "^3.12.0",
+    "eslint-config-airbnb": "^13.0.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.8.0",
     "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.9.0",
     "gh-pages": "^0.11.0",
@@ -59,7 +67,8 @@
     "react-addons-css-transition-group": "^15.3.0",
     "react-addons-update": "^15.3.0",
     "react-dom": "^15.2.1",
-    "react-tap-event-plugin": "^1.0.0"
+    "react-tap-event-plugin": "^1.0.0",
+    "eslint-plugin-jsx-a11y": "^2.2.3"
   },
   "dependencies": {
     "babel-plugin-transform-decorators-legacy": "^1.3.4",

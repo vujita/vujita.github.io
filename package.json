@@ -22,6 +22,11 @@
     "url": "https://github.com/vujita/vujita.github.io/issues"
   },
   "homepage": "https://github.com/vujita/vujita.github.io#readme",
+  "pre-commit": {
+    "run": [
+      "lint"
+    ]
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.7",
     "babel-core": "^6.11.4",
@@ -50,6 +55,7 @@
     "node-sass": "^3.8.0",
     "normalize.css": "^4.2.0",
     "postcss-loader": "^0.9.1",
+    "pre-commit": "^1.2.0",
     "precss": "^1.4.0",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",

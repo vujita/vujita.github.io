@@ -1,5 +1,4 @@
 /**
  * Created by vuthasone on 8/18/2016.
  */
-import Contact from './Contact';
-export default Contact;
+export { default } from './Contact';

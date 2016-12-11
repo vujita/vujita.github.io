@@ -1,6 +1,7 @@
 /**
  * Created by vnguyen on 7/25/16.
  */
+/*eslint-disable */
 var path = require('path'),
     webpack = require('webpack'),
     autoprefixer = require('autoprefixer'),
@@ -17,9 +18,9 @@ module.exports = {
     module: {
         loaders: [
             {
-                ttest: /(\.js|\.jsx)$/,
+                test: /(\.js|\.jsx)$/,
                 exclude: /(node_modules|bower_components)/,
-                loader: 'babel'
+                loaders: ['babel', 'eslint']
             },
             {
                 test: /\.html$/,
@@ -58,7 +59,7 @@ module.exports = {
             ]
         }
     },
-    postcss: function () {
+    postcss: function() {
         return [autoprefixer, precss];
     },
     plugins: [
@@ -66,4 +67,5 @@ module.exports = {
             template: 'index.html'
         })
     ]
-}
+};
+/*eslint-enable */

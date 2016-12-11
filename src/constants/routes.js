@@ -11,11 +11,11 @@ export const EXPERIENCE = 'EXPERIENCE';
 export const CONTACT = 'CONTACT';
 
 export default {
-    HOME,
-    ABOUT,
-    EXPERIENCE,
-    CONTACT
-}
+  HOME,
+  ABOUT,
+  EXPERIENCE,
+  CONTACT,
+};
 
 export const friendlyNames = {};
 

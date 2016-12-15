@@ -8,7 +8,7 @@ import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, Route, useRouterHistory, IndexRedirect } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import createHashHistory from 'react-router/node_modules/history/lib/createHashHistory';
+import { createHashHistory } from 'history';
 // My Stuff
 import { HOME, ABOUT, CONTACT, EXPERIENCE } from '../constants/routes';
 import store from '../stores/createStore';

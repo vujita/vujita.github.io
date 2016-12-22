@@ -6,7 +6,7 @@ import style from './about.scss';
 import fatNinjaPic from '../../../images/fat-ninja.svg';
 
 const greeting = 'Hello, I am Vu';
-const whereImfrom = 'I come from the Lone Star State, but I am looking to move to The Golden State and have my heart set on the Bay area';
+const whereImfrom = '';
 const About = () => (
   <div>
     <h1 className={style.greeting}>{greeting}</h1>

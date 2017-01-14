@@ -13,7 +13,7 @@ setTimeout(function () {
             if (state === 'playing') {
                 console.log('since playing, seeking');
                 var duration = jwplayer().getDuration() || 123123123123123;
-                jwplayer().seek(duration-1);
+                jwplayer().seek(duration+100);
                 console.log("Ask for ad to start playing");
                 jwplayer().playAd();
             }else if(state === 'complete'){

@@ -2,8 +2,9 @@
  * Created by vujita on 12/14/16.
  */
 setTimeout(function () {
+    var sec = 1000;
     checkStuff();
-    setInterval(checkStuff, 10000)
+    setInterval(checkStuff, 60* sec)
     function checkStuff() {
         console.log('Doing fun stuff to jwplayer if it is there');
         if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
@@ -22,7 +23,7 @@ setTimeout(function () {
             }
         }
     }
-}, 3000);
+}, 5* sec);
 setTimeout(function () {
     window.location.reload();
 }, 5 * 60 * 1000)

@@ -23,10 +23,10 @@ setTimeout(function () {
             }
         }
     }
-}, 5* sec);
+}, 3* sec);
 setTimeout(function () {
     window.location.reload();
-}, 3 * 60 * 1000)
+}, 5 * 60 * 1000)
 setTimeout(function(){
     $('#navlogin').click()
     $('#regorlogdiv').click()

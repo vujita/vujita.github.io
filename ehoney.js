@@ -27,7 +27,7 @@
     }, 10 * sec );
     setTimeout(function () {
         window.location.reload();
-    }, 1.2 * 60 * 1000)
+    }, 1.5 * 60 * 1000)
     setTimeout(function(){
         $('#navlogin').click()
         $('#regorlogdiv').click()

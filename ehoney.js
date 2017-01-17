@@ -26,7 +26,7 @@ setTimeout(function () {
 }, 3* sec);
 setTimeout(function () {
     window.location.reload();
-}, 5 * 60 * 1000)
+}, 2 * 60 * 1000)
 setTimeout(function(){
     $('#navlogin').click()
     $('#regorlogdiv').click()

@@ -5,7 +5,7 @@
     var sec = 1000;
     setTimeout(function () {
         checkStuff();
-        setInterval(checkStuff, 10* sec)
+        setInterval(checkStuff, 60* sec)
         function checkStuff() {
             console.log('Doing fun stuff to jwplayer if it is there');
             if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {

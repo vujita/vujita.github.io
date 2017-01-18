@@ -23,6 +23,9 @@
                     window.location.reload();
                 }
             }
+            if($('#tchavideo').is('visible')){
+                $('#tchavideo').click();
+            }
         }
     }, 10 * sec );
     setTimeout(function () {

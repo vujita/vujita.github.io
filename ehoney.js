@@ -15,7 +15,7 @@
                 if (state === 'playing') {
                     console.log('since playing, seeking');
                     var duration = jwplayer().getDuration() || 123123123123123;
-                    jwplayer().seek(duration*1000);
+                    jwplayer().seek(1000*1000);
                     console.log("Ask for ad to start playing");
                     jwplayer().playAd();
                 }else if(state === 'complete'){

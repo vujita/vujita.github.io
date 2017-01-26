@@ -4,7 +4,7 @@
 (function(){
     var sec = 1000;
     if(/therapy_duck_as_service_animal_/.test(window.location.href)){
-     window.location.href = 'www.earnhoney.com/en/videos/';   
+     window.location.href = 'http://www.earnhoney.com/en/videos/';
     }
     setTimeout(function () {
         checkStuff();

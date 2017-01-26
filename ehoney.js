@@ -6,7 +6,8 @@
     if(
         /therapy_duck_as_service_animal_/.test(window.location.href) ||        
         /uk_robo_chef_p4/.test(window.location.href) || 
-        /egyptian_wild_animal_trainer_/.test(window.location.href)
+        /egyptian_wild_animal_trainer_/.test(window.location.href) ||
+        /how_to_cook_shrimp_gyoza_p3/.test(window.location.href) 
       ){
      window.location.href = 'http://www.earnhoney.com/en/videos/';
     }

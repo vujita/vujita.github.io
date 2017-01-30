@@ -11,7 +11,8 @@
         /how_to_cook_shrimp_gyoza_p3/.test(loc) ||
         /baby_animals_p3/.test(loc)
       ){
-     window.location.href = 'http://www.earnhoney.com/en/videos/';
+    jQuery('#video .videodetdiv')[0].click()
+     //window.location.href = 'http://www.earnhoney.com/en/videos/';
     }
     setTimeout(function () {
         checkStuff();

@@ -3,11 +3,13 @@
  */
 (function(){
     var sec = 1000;
+    var loc = window.location.href;
     if(
-        /therapy_duck_as_service_animal_/.test(window.location.href) ||        
-        /uk_robo_chef_p4/.test(window.location.href) || 
-        /egyptian_wild_animal_trainer_/.test(window.location.href) ||
-        /how_to_cook_shrimp_gyoza_p3/.test(window.location.href) 
+        /therapy_duck_as_service_animal_/.test(loc) ||        
+        /uk_robo_chef_p4/.test(loc) || 
+        /egyptian_wild_animal_trainer_/.test(loc) ||
+        /how_to_cook_shrimp_gyoza_p3/.test(loc) ||
+        /baby_animals_p3/.test(loc)
       ){
      window.location.href = 'http://www.earnhoney.com/en/videos/';
     }

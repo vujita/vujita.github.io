@@ -19,7 +19,7 @@
 //         setInterval(checkStuff, 60* sec)
         function checkStuff() {
             console.log('Doing fun stuff to jwplayer if it is there');
-            if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer() && jwplayer().getPosition()!== 0) {
+            if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer() && jwplayer().getPosition() == 0) {
                 console.log('jwplayer found');
                 var state = jwplayer().getState();
                 console.log('jwplayer state:', state);
@@ -41,7 +41,7 @@
     }, 10 * sec );
     setTimeout(function () {
         window.location.reload();
-    }, 1.5 * 60 * 1000)
+    }, 10 * 1000)
     setTimeout(function(){
         $('#navlogin').click()
         $('#regorlogdiv').click()

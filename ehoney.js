@@ -45,8 +45,8 @@
                 $('#tchavideo').click();
             }
         }
-        setInterval(checkStuff, 5 * sec);
-    }, 3 * sec );
+        setInterval(checkStuff, 45 * sec);
+    }, 10 * sec );
     
     //Restart every 5 mins
     setTimeout(function () {

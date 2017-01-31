@@ -19,11 +19,12 @@
 //         setInterval(checkStuff, 60* sec)
         function checkStuff() {
             console.log('Doing fun stuff to jwplayer if it is there');
-            if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer() && jwplayer().getPosition() != 0) {
+            if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
                 console.log('jwplayer found');
                 var state = jwplayer().getState();
                 console.log('jwplayer state:', state);
-                if (state === 'playing') {
+                console.log('jwplayer position:', jwplayer().getPosition());
+                if (state === 'playing' && jwplayer().getPosition() != 0) {
                     console.log('since playing, seeking');
                     var duration = jwplayer().getDuration() || 123123123123123;
                     jwplayer().seek(1000*1000);

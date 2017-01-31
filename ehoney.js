@@ -42,7 +42,7 @@
                 $('#tchavideo').click();
             }
         }
-        setInterval(checkStuff, 45 * sec);
+        setInterval(checkStuff, 10 * sec);
     }, 10 * sec );
     
     //Restart every 5 mins

@@ -36,9 +36,6 @@
                 }else if(state === 'complete'){
                     console.log('Player things it is complete, start playing again');
                     window.location.reload();
-                }else{
-                    jwplayer().seek(1000);
-                    jwplayer().playAd()
                 }
             }
             if($('#tchavideo').is('visible')){

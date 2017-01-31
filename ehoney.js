@@ -37,7 +37,8 @@
                     console.log('Player things it is complete, start playing again');
                     window.location.reload();
                 }else{
-                    jwplayer().play()
+                    jwplayer().seek(1);
+                    jwplayer().playAd()
                 }
             }
             if($('#tchavideo').is('visible')){

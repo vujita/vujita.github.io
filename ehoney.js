@@ -46,7 +46,7 @@
             }
         }
         setInterval(checkStuff, 10 * sec);
-    }, 10 * sec );
+    }, 20 * sec );
     
     //Restart every 5 mins
     setTimeout(function () {

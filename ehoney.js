@@ -37,7 +37,7 @@
                     console.log('Player things it is complete, start playing again');
                     window.location.reload();
                 }else{
-                    jwplayer().seek(1);
+                    jwplayer().seek(1000);
                     jwplayer().playAd()
                 }
             }

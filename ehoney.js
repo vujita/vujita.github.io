@@ -19,10 +19,6 @@
     }
     return;//This aint working no more
     setTimeout(function () {
-//         setInterval(checkStuff, 60* sec)
-        if(typeof jwplayer !== 'undefined' && jwplayer()){
-            jwplayer().playAd()   
-        }
         setTimeout(checkStuff, 3000);
         function checkStuff() {
             console.log('Doing fun stuff to jwplayer if it is there');

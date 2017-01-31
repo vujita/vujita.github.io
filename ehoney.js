@@ -17,7 +17,6 @@
             window.location.href = 'http://www.earnhoney.com/en/videos/';
         }, 20 * sec);
     }
-    return;//This aint working no more
     setTimeout(function () {
         setTimeout(checkStuff, 3000);
         function checkStuff() {

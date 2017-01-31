@@ -14,7 +14,7 @@
     jQuery('#video .videodetdiv')[0].click()
      //window.location.href = 'http://www.earnhoney.com/en/videos/';
     }
-    setInterval(function () {
+    setTimeout(function () {
         checkStuff();
 //         setInterval(checkStuff, 60* sec)
         function checkStuff() {
@@ -38,6 +38,7 @@
                 $('#tchavideo').click();
             }
         }
+        setInterval(checkStuff, 10 * sec);
     }, 10 * sec );
     
     //Restart every 5 mins

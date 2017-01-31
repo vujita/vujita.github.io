@@ -22,8 +22,6 @@
         if(typeof jwplayer !== 'undefined' && jwplayer()){
             jwplayer().playAd()   
         }
-        
-        checkStuff();
         function checkStuff() {
             console.log('Doing fun stuff to jwplayer if it is there');
             if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
@@ -47,7 +45,7 @@
             }
         }
         setInterval(checkStuff, 10 * sec);
-    }, 20 * sec );
+    }, 10 * sec );
     
     //Restart every 5 mins
     setTimeout(function () {

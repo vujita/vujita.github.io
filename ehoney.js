@@ -39,9 +39,12 @@
             }
         }
     }, 10 * sec );
+    
+    //Restart every 5 mins
     setTimeout(function () {
         window.location.reload();
-    }, 1.5 * 60 * 1000)
+    }, 5 * 60 * 1000);
+    
     setTimeout(function(){
         $('#navlogin').click()
         $('#regorlogdiv').click()

@@ -12,8 +12,10 @@
         /baby_animals_p3/.test(loc) ||
         /three_easy_and_healthy_juice_options_p2/.test(loc)
       ){
-    jQuery('#video .videodetdiv')[0].click()
-     //window.location.href = 'http://www.earnhoney.com/en/videos/';
+    jQuery('#video .videodetdiv')[0].click();
+        setTimout(function(){
+            window.location.href = 'http://www.earnhoney.com/en/videos/';
+        }, 20 * sec);
     }
     setTimeout(function () {
         checkStuff();

@@ -14,7 +14,7 @@
     jQuery('#video .videodetdiv')[0].click()
      //window.location.href = 'http://www.earnhoney.com/en/videos/';
     }
-    setTimeout(function () {
+    setInterval(function () {
         checkStuff();
 //         setInterval(checkStuff, 60* sec)
         function checkStuff() {
@@ -41,7 +41,7 @@
     }, 10 * sec );
     setTimeout(function () {
         window.location.reload();
-    }, 10 * 1000)
+    }, 1.5 * 60 * 1000)
     setTimeout(function(){
         $('#navlogin').click()
         $('#regorlogdiv').click()

@@ -18,7 +18,7 @@
         }, 20 * sec);
     }
     setTimeout(function () {
-        setTimeout(checkStuff, 3000);
+        checkStuff();
         function checkStuff() {
             console.log('Doing fun stuff to jwplayer if it is there');
             if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
@@ -41,8 +41,8 @@
                 $('#tchavideo').click();
             }
         }
-        setInterval(checkStuff, 60 * sec);
-    }, 60 * sec );
+        setInterval(checkStuff, 20 * sec);
+    }, 10 * sec );
     
     //Restart every 5 mins
     setTimeout(function () {

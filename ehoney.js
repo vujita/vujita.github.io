@@ -10,7 +10,8 @@
         /egyptian_wild_animal_trainer_/.test(loc) ||
         /how_to_cook_shrimp_gyoza_p3/.test(loc) ||
         /baby_animals_p3/.test(loc) ||
-        /three_easy_and_healthy_juice_options_p2/.test(loc)
+        /three_easy_and_healthy_juice_options_p2/.test(loc) ||
+        /gina_rodriquez_interview_p2/.test(loc)
       ){
     jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){

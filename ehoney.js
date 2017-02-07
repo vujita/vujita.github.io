@@ -22,7 +22,7 @@
     setTimeout(function () {
         checkStuff();
         function checkStuff() {
-            return;//Turning off skipping for now
+            //return;//Turning off skipping for now
             console.log('Doing fun stuff to jwplayer if it is there');
             if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
                 console.log('jwplayer found');

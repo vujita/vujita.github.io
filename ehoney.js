@@ -12,7 +12,8 @@
         /baby_animals_p3/.test(loc) ||
         /three_easy_and_healthy_juice_options_p2/.test(loc) ||
         /gina_rodriquez_interview_p1/.test(loc) || 
-        /gina_rodriquez_interview_p2/.test(loc)
+        /gina_rodriquez_interview_p2/.test(loc) || 
+        /mince_pie_recipe_p7/.test(locl)
       ){
     jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){

@@ -14,7 +14,7 @@
         /gina_rodriquez_interview_p1/.test(loc) || 
         /gina_rodriquez_interview_p2/.test(loc) || 
         /mince_pie_recipe_p7/.test(loc) ||
-        /ufc_dan_henderson_post_championship_loss_interview_and_retirement_announcement_p5/.test(loc)
+        /ufc_dan_henderson/.test(loc)
       ){
         jQuery('#video .videodetdiv')[1].click();
         setTimout(function(){

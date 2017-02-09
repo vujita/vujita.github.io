@@ -15,7 +15,7 @@
         /gina_rodriquez_interview_p2/.test(loc) || 
         /mince_pie_recipe_p7/.test(locl)
       ){
-    jQuery('#video .videodetdiv')[0].click();
+        jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){
             window.location.href = 'http://www.earnhoney.com/en/videos/';
         }, 20 * sec);
@@ -23,6 +23,7 @@
     setTimeout(function () {
         checkStuff();
         function checkStuff() {
+            jQuery('#callcaptcha').click();
             //return;//Turning off skipping for now
             console.log('Doing fun stuff to jwplayer if it is there');
             if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {

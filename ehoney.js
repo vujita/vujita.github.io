@@ -16,7 +16,7 @@
         /mince_pie_recipe_p7/.test(loc) ||
         /ufc_dan_henderson_post_championship_loss_interview_and_retirement_announcement_p5/.test(loc)
       ){
-        jQuery('#video .videodetdiv')[0].click();
+        jQuery('#video .videodetdiv')[1].click();
         setTimout(function(){
             window.location.href = 'http://www.earnhoney.com/en/videos/';
         }, 20 * sec);
@@ -53,7 +53,7 @@
     //Restart every 5 mins
     setTimeout(function () {
         window.location.reload();
-    }, 5 * 60 * 1000);
+    }, 3 * 60 * 1000);
     
     setTimeout(function(){
         $('#navlogin').click()

@@ -16,7 +16,8 @@
         /mince_pie_recipe_p7/.test(loc) ||
         /ufc_dan_henderson/.test(loc) ||
         /calia_by_carrie_underwood/.test(loc) ||
-        /tom_hanks_on_new_film_inferno/.test(loc)
+        /tom_hanks_on_new_film_inferno/.test(loc) ||
+        /penguin_wetsuit/.test(loc)
       ){
         jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){

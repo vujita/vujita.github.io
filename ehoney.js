@@ -36,8 +36,10 @@
                     console.log('since playing, seeking');
                     var duration = jwplayer().getDuration() || 123123123123123;
                     jwplayer().seek(1000*1000);
-                    console.log("Ask for ad to start playing");
-                    jwplayer().playAd();
+                    setTimeout(function(){
+                        console.log("Ask for ad to start playing");
+                        jwplayer().playAd();
+                    },3000)                    
                 }else if(state === 'complete'){
                     console.log('Player things it is complete, start playing again');
                     window.location.reload();

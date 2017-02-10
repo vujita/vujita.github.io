@@ -16,7 +16,8 @@
         /ufc_dan_henderson/.test(loc) ||
         /calia_by_carrie_underwood/.test(loc) ||
         /tom_hanks_on_new_film_inferno/.test(loc) ||
-        /penguin_wetsuit/.test(loc)
+        /penguin_wetsuit/.test(loc) ||
+        /celebrities_weigh_in_on_presidential_debate/.test(loc)
       ){
         jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){
@@ -52,7 +53,7 @@
             }
         }
         setInterval(checkStuff, 20 * sec);
-    }, 10 * sec );
+    }, 4 * sec );
     
     //Restart every 5 mins
     setTimeout(function () {

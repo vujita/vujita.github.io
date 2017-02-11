@@ -43,9 +43,6 @@
                     setTimeout(function(){
                         console.log("Ask for ad to start playing");
                         jwplayer().playAd();
-                        setTimeout(function(){
-                            window.location.reload();
-                        },12*1000)
                     },3000)                    
                 }else if(state === 'complete'){
                     console.log('Player things it is complete, start playing again');

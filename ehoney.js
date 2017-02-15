@@ -31,6 +31,7 @@
         checkStuff();
         function checkStuff() {
             jQuery('#callcaptcha').click();
+            jQuery('#js-btn-success').click();
             //return;//Turning off skipping for now
             console.log('Doing fun stuff to jwplayer if it is there');
             if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {

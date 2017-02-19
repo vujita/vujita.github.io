@@ -11,8 +11,7 @@
         /how_to_cook_shrimp_gyoza/.test(loc) ||
         /baby_animals_p3/.test(loc) ||
         /three_easy_and_healthy_juice_options/.test(loc) ||
-        /gina_rodriquez_interview_p1/.test(loc) || 
-        /gina_rodriquez_interview_p2/.test(loc) || 
+        /gina/.test(loc) || 
         /mince_pie_recipe/.test(loc) ||
         /ufc_dan_henderson/.test(loc) ||
         /calia_by_carrie_underwood/.test(loc) ||

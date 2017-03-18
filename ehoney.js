@@ -21,7 +21,8 @@
         /rob_lowe_interview/.test(loc) || 
         /puppy_bowl_xiii_highlights/.test(loc) || 
         /backstreet_boys/.test(loc) ||
-        /_curry_/.test(loc)
+        /_curry_/.test(loc) ||
+        /gigi_hadid/.test(loc)
       ){
         jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){

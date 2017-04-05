@@ -28,7 +28,9 @@
     if( skipRegEx.test(loc) ){
         jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){
-            window.location.href = 'http://www.earnhoney.com/en/videos/';
+            if(window.location.host !== "www.tvglee.com"){
+                window.location.href = 'http://www.earnhoney.com/en/videos/';
+            }
         }, 20 * sec);
     }
     setTimeout(function () {

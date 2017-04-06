@@ -2,6 +2,7 @@
  * Created by vujita on 12/14/16.
  */
 (function(){
+    return; // Don't think it is actually helping
     var sec = 1000;
     var loc = window.location.href;
     var skipIfMatch = [

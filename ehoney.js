@@ -4,8 +4,8 @@
 (function(){
     var sec = 1000;
     var loc = window.location.href;
-    setTimeout(checkStuff, 5 * sec );
-    setTimeout(skipPageCheck, 250 * sec);
+   // setTimeout(checkStuff, 5 * sec );
+   // setTimeout(skipPageCheck, 250 * sec);
     function skipPageCheck(){
         var skipIfMatch = [
             'therapy_duck_as_service_animal_',

@@ -2,7 +2,6 @@
  * Created by vujita on 12/14/16.
  */
 (function(){
-    return; // Don't think it is actually helping
     var sec = 1000;
     var loc = window.location.href;
     var skipIfMatch = [
@@ -26,53 +25,38 @@
         'gigi_hadid',
     ];
     var skipRegEx = new RegExp('('+ skipIfMatch.join('|')+')');
-    if( skipRegEx.test(loc) ){
+    if( skipRegEx.test(loc) || window.location.host !== "www.tvglee.com"){
         jQuery('#video .videodetdiv')[0].click();
         setTimout(function(){
-            if(window.location.host !== "www.tvglee.com"){
-                window.location.href = 'http://www.earnhoney.com/en/videos/';
-            }
+            window.location.href = 'http://www.earnhoney.com/en/videos/';
         }, 20 * sec);
     }
-    setTimeout(function () {
-        checkStuff();
-        function checkStuff() {
-            jQuery('#callcaptcha').click();
-            jQuery('#js-btn-success').click();
-            //return;//Turning off skipping for now
-            console.log('Doing fun stuff to jwplayer if it is there');
-            if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
-                console.log('jwplayer found');
-                var state = jwplayer().getState();
-                console.log('jwplayer state:', state);
-                console.log('jwplayer position:', jwplayer().getPosition());
-                if (state === 'playing' && jwplayer().getPosition() != 0) {
-                    console.log('since playing, seeking');
-                    var duration = jwplayer().getDuration() || 123123123123123;
-                    jwplayer().seek(1000*1000);
-                    setTimeout(function(){
-                        console.log("Ask for ad to start playing");
-                        jwplayer().playAd();
-                    },3000)                    
-                }else if(state === 'complete'){
-                    console.log('Player things it is complete, start playing again');
-                    window.location.reload();
-                }
-            }
-            if($('#tchavideo').is('visible')){
-                $('#tchavideo').click();
+    setTimeout(checkStuff, 5 * sec );
+    function checkStuff() {
+        jQuery('#callcaptcha').click();
+        jQuery('#js-btn-success').click();
+        //return;//Turning off skipping for now
+        console.log('Doing fun stuff to jwplayer if it is there');
+        if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
+            console.log('jwplayer found');
+            var state = jwplayer().getState();
+            console.log('jwplayer state:', state);
+            console.log('jwplayer position:', jwplayer().getPosition());
+            if (state === 'playing' && jwplayer().getPosition() != 0) {
+                console.log('since playing, seeking');
+                var duration = jwplayer().getDuration() + 5;
+                jwplayer().seek(duration);
+                setTimeout(function(){
+                    console.log("Ask for ad to start playing");
+                    jwplayer().playAd();
+                },3000)                    
+            }else if(state === 'complete'){
+                //console.log('Player things it is complete, start playing again');
+                //window.location.reload();
             }
         }
-        setInterval(checkStuff, 20 * sec);
-    }, 4 * sec );
-    
-    //Restart every 5 mins
-    setTimeout(function () {
-        window.location.reload();
-    }, 3 * 60 * 1000);
-    
-    setTimeout(function(){
-        $('#navlogin').click()
-        $('#regorlogdiv').click()
-    },3000)
+        if($('#tchavideo').is('visible')){
+            $('#tchavideo').click();
+        }
+    }
 })()

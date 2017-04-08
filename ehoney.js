@@ -6,6 +6,7 @@
     var loc = window.location.href;
    // setTimeout(checkStuff, 5 * sec );
    // setTimeout(skipPageCheck, 250 * sec);
+    setTimeout(clickTchaVideo, 10 * sec);
     function skipPageCheck(){
         var skipIfMatch = [
             'therapy_duck_as_service_animal_',
@@ -58,6 +59,8 @@
                 //window.location.reload();
             }
         }
+    }
+    function clickTchaVideo(){
         if($('#tchavideo').is('visible')){
             $('#tchavideo').click();
         }

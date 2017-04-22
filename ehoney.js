@@ -4,7 +4,8 @@
 (function(){
     var sec = 1000;
     var loc = window.location.href;
-    setTimeout(checkStuff, 5 * sec );
+    //setTimeout(checkStuff, 5 * sec );
+    setInterval(checkStuff, 5 * sec );
    // setTimeout(skipPageCheck, 250 * sec);
     setTimeout(clickTchaVideo, 10 * sec);
     function skipPageCheck(){
@@ -54,7 +55,7 @@
                 const lastTime = localStorage['last-ad-skip-time'] || 0;
                 console.log('lastTime skipped', new Date(lastTime))
                 if(localStorage['last-ad-played'] != window.location.href || 
-                    (lastTime + 1000*60) < new Date().getTime()
+                    (lastTime + 1000*60*1.2) < new Date().getTime()
                     ){
 
                     localStorage['last-ad-played'] = window.location.href;

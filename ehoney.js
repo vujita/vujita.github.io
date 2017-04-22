@@ -4,7 +4,7 @@
 (function(){
     var sec = 1000;
     var loc = window.location.href;
-   // setTimeout(checkStuff, 5 * sec );
+    setTimeout(checkStuff, 5 * sec );
    // setTimeout(skipPageCheck, 250 * sec);
     setTimeout(clickTchaVideo, 10 * sec);
     function skipPageCheck(){
@@ -43,20 +43,23 @@
         console.log('Doing fun stuff to jwplayer if it is there');
         if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
             console.log('jwplayer found');
-            var state = jwplayer().getState();
-            console.log('jwplayer state:', state);
-            console.log('jwplayer position:', jwplayer().getPosition());
-            if (state === 'playing' && jwplayer().getPosition() != 0) {
-                console.log('since playing, seeking');
-                var duration = jwplayer().getDuration() + 5;
-                jwplayer().seek(duration);
-                setTimeout(function(){
-                    console.log("Ask for ad to start playing");
-                    jwplayer().playAd();
-                },3000)                    
-            }else if(state === 'complete'){
-                //console.log('Player things it is complete, start playing again');
-                //window.location.reload();
+            console.log('state', jwplayer().getState(),'pos',jwplayer().getPosition(), 'duration', jwplayer().getDuration());
+
+            if(jwplayer().getState() === 'idle' || 
+                (jwplayer().getPosition() > 0 && jwplayer().getDuration() > 0)
+              ){
+
+                const lastTime = localStorage['last-ad-skip-time'] || 0;
+                console.log('lastTime skipped', new Date(lastTime))
+                if(localStorage['last-ad-played'] != window.location.href || 
+                    (lastTime+ 1000*60*1.2) < new Date().getTime() ||
+                    jwplayer().getState() === 'idle'
+                    ){
+
+                    localStorage['last-ad-played'] = window.location.href;
+                    localStorage['last-ad-skip-time'] = new Date().getTime();
+                    jwplayer().play().seek(999999).playAd();
+                }
             }
         }
     }

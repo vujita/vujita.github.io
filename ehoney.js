@@ -44,7 +44,9 @@
         if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
             console.log('jwplayer found');
             console.log('state', jwplayer().getState(),'pos',jwplayer().getPosition(), 'duration', jwplayer().getDuration());
-
+            if(jwplayer().getState() === 'idle'){
+                jwplayer().play();
+            }
             if(jwplayer().getState() === 'idle' || 
                 (jwplayer().getPosition() > 0 && jwplayer().getDuration() > 0)
               ){
@@ -52,13 +54,12 @@
                 const lastTime = localStorage['last-ad-skip-time'] || 0;
                 console.log('lastTime skipped', new Date(lastTime))
                 if(localStorage['last-ad-played'] != window.location.href || 
-                    (lastTime+ 1000*60*1.2) < new Date().getTime() ||
-                    jwplayer().getState() === 'idle'
+                    (lastTime+ 1000*60*1.2) < new Date().getTime()
                     ){
 
                     localStorage['last-ad-played'] = window.location.href;
                     localStorage['last-ad-skip-time'] = new Date().getTime();
-                    jwplayer().play().seek(999999).playAd();
+                    jwplayer().play().seek(999999).play();
                 }
             }
         }

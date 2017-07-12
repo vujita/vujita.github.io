@@ -59,7 +59,7 @@
                 const lastTime = localStorage['last-ad-skip-time'] || 0;
                 console.log('lastTime skipped', new Date(lastTime))
                 if(localStorage['last-ad-played'] != window.location.href || 
-                    (lastTime + 1000*60*2.3) < new Date().getTime()
+                    (lastTime + 1000*60*1.3) < new Date().getTime()
                     ){
 
                     localStorage['last-ad-played'] = window.location.href;

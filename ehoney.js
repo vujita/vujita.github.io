@@ -5,7 +5,7 @@
     var sec = 1000;
     var loc = window.location.href;
     //setTimeout(checkStuff, 5 * sec );
-    //setInterval(checkStuff, 5 * sec );
+    setInterval(checkStuff, 5 * sec );
    // setTimeout(skipPageCheck, 250 * sec);
     setTimeout(clickTchaVideo, 10 * sec);
     function skipPageCheck(){

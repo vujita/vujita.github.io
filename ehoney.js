@@ -65,7 +65,7 @@
                     localStorage['last-ad-played'] = window.location.href;
                     localStorage['last-ad-skip-time'] = new Date().getTime();
                     jwplayer().play().seek(999999).play();
-                    setTimeout(skipPageCheck, 120* 100)
+                    setTimeout(skipPageCheck, 60* 100)
                 }
             }
         }

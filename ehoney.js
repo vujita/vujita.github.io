@@ -33,7 +33,7 @@
         if( skipRegEx.test(loc) || window.location.host !== "www.tvglee.com"){
             jQuery('#video .videodetdiv')[0].click();
             setTimout(function(){
-                window.location.href = 'http://www.earnhoney.com/en/videos/';
+                // window.location.href = 'http://www.earnhoney.com/en/videos/';
             }, 20 * sec);
         }
     }
@@ -65,6 +65,7 @@
                     localStorage['last-ad-played'] = window.location.href;
                     localStorage['last-ad-skip-time'] = new Date().getTime();
                     jwplayer().play().seek(999999).play();
+                    setTimeout(skipPageCheck, 120* 100)
                 }
             }
         }

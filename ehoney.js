@@ -32,6 +32,7 @@
         var skipRegEx = new RegExp('('+ skipIfMatch.join('|')+')');
         if( skipRegEx.test(loc) || window.location.host !== "www.tvglee.com"){
             jQuery('#video .videodetdiv')[0].click();
+            jQuery('#nextvideocontainer > div').click()
             setTimout(function(){
                 // window.location.href = 'http://www.earnhoney.com/en/videos/';
             }, 20 * sec);

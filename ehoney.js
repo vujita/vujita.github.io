@@ -39,6 +39,7 @@
         }
     }
     function checkStuff() {
+        jQuery('#captchaModal > div > div > div.modal-footer > button:nth-child(1)').click();
         jQuery('#callcaptcha').click();
         jQuery('#js-btn-success').click();
         const goTo = jQuery('a#btnGo').attr('href');

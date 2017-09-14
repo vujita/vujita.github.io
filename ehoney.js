@@ -39,7 +39,6 @@
         }
     }
     function checkStuff() {
-        jQuery('#captchaModal > div > div > div.modal-footer > button:nth-child(1)').click();
         jQuery('#callcaptcha').click();
         jQuery('#js-btn-success').click();
         const goTo = jQuery('a#btnGo').attr('href');
@@ -67,6 +66,8 @@
                     localStorage['last-ad-played'] = window.location.href;
                     localStorage['last-ad-skip-time'] = new Date().getTime();
                     jwplayer().play().seek(999999).play();
+                    
+                    jQuery('#captchaModal > div > div > div.modal-footer > button:nth-child(1)').click();
                     setTimeout(skipPageCheck, 60* 100)
                 }
             }

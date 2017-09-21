@@ -1,10 +1,8 @@
-/**
- * Created by vujita on 12/14/16.
- */
 setTimeout(function () {
     checkStuff();
     setInterval(checkStuff, 10000)
     function checkStuff() {
+        return;
         console.log('Doing fun stuff to jwplayer if it is there');
         if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
             console.log('jwplayer found');

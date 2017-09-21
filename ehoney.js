@@ -8,6 +8,9 @@
     setInterval(checkStuff, 5 * sec );
     setTimeout(skipPageCheck, 60 * sec);
     setTimeout(clickTchaVideo, 10 * sec);
+    setTimeout(function(){        
+        jQuery('#captchaModal > div > div > div.modal-footer > button:nth-child(1)').click();
+    }, 2 * 60 * sec);
     function skipPageCheck(){
         var skipIfMatch = [
             'therapy_duck_as_service_animal_',
@@ -67,7 +70,6 @@
                     localStorage['last-ad-skip-time'] = new Date().getTime();
                     jwplayer().play().seek(999999).play();
                     
-                    jQuery('#captchaModal > div > div > div.modal-footer > button:nth-child(1)').click();
                     setTimeout(skipPageCheck, 60* 100)
                 }
             }

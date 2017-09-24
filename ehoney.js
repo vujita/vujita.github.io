@@ -5,9 +5,9 @@
     var sec = 1000;
     var loc = window.location.href;
     //setTimeout(checkStuff, 5 * sec );
-    setInterval(checkStuff, 5 * sec );
-    setTimeout(skipPageCheck, 60 * sec);
-    setTimeout(clickTchaVideo, 10 * sec);
+    //setInterval(checkStuff, 5 * sec );
+    //setTimeout(skipPageCheck, 60 * sec);
+    //setTimeout(clickTchaVideo, 10 * sec);
     setTimeout(function(){        
         jQuery('#captchaModal > div > div > div.modal-footer > button:nth-child(1)').click();
     }, 2 * 60 * sec);

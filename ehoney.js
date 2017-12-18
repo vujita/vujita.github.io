@@ -75,6 +75,7 @@
         }
     }
     function clickTchaVideo(){
+        jQuery('#captchaModal button:contains("Yes")').click()
         jQuery('[data-dismiss="modal"]').click()
         if($('#tchavideo').is('visible')){
             $('#tchavideo').click();

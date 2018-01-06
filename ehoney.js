@@ -48,6 +48,7 @@
         if(goTo){
             window.location.href = goTo;   
         }
+        return;
         console.log('Doing fun stuff to jwplayer if it is there');
         if (typeof (jwplayer)!=='undefined' && jwplayer && jwplayer()) {
             console.log('jwplayer found');

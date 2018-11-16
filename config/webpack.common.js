@@ -1,16 +1,15 @@
 /**
  * Created by vnguyen on 7/25/16.
  */
-/*eslint-disable */
 var path = require('path'),
     webpack = require('webpack'),
     autoprefixer = require('autoprefixer'),
     precss = require('precss'),
     HtmlWebackPlugin = require('html-webpack-plugin'),
-    ExtractTextPlugin = require('extract-text-webpack-plugin'),
-    helpers = require('./helpers')
+    ExtractTextPlugin = require('extract-text-webpack-plugin');
+
 var entries = {
-    index: './src/containers/index.js'
+    index: './src/containers/index.js',
 };
 
 module.exports = {
@@ -64,8 +63,8 @@ module.exports = {
     },
     plugins: [
         new HtmlWebackPlugin({
-            template: 'index.html'
+            template: 'index.html',
+            chunks: ['index']
         })
     ]
 };
-/*eslint-enable */

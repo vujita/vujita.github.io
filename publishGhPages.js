@@ -6,7 +6,11 @@ var path = require('path'),
     ghPages = require('gh-pages'),
     distFolder = 'dist';
 //We need to move the 404 page in too the dist folder too
-copyFilesToDist(['404.html', 'CNAME', 'README.md','ehoney.js']);
+copyFilesToDist([
+  '404.html',
+  'CNAME',
+  'README.md',
+]);
 
 //Publish dist folder to gh-pages branch
 ghPages.publish(path.join(__dirname, distFolder), function (err) {

@@ -6,7 +6,7 @@ import { Link } from 'react-router';
 import { forEach } from 'lodash';
 import style from './home.scss';
 import routes, { friendlyNames, HOME } from '../../constants/routes';
-import profileImage from '../../../images/profile.jpg';
+import profileImage from '../../images/profile.jpg';
 
 const navLinks = [];
 forEach(routes, (k) => {

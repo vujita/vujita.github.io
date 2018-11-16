@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import style from './about.scss';
-import fatNinjaPic from '../../../images/fat-ninja.svg';
+import fatNinjaPic from '../../images/fat-ninja.svg';
 
 const greeting = 'Hello, I am Vu';
 const whereImfrom = '';

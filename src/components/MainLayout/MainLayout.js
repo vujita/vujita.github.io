@@ -20,8 +20,7 @@ const mapStateToProps = ({ navDrawerOpen }) => ({
 const mapDispatchToProps = dispatch => ({
   onToggleSidebar: () => dispatch(toggleRightSideBar()),
 });
-@connect(mapStateToProps, mapDispatchToProps)
-export default class MainLayout extends Component {
+export class MainLayout extends Component {
   render() {
     const { children, location: { pathname }, navDrawerOpen, onToggleSidebar } = this.props;
 
@@ -79,3 +78,7 @@ MainLayout.childContextTypes = {
 MainLayout.contextTypes = {
   store: PropTypes.object,
 };
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MainLayout);

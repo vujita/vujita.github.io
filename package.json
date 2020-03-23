@@ -4,7 +4,9 @@
   "description": "Vujita github page",
   "main": "index.js",
   "scripts": {
-    "prettier": "prettier --write ."
+    "prettier": "prettier --write .",
+    "preeslint": "npm run prettier",
+    "eslint": "eslint --fix --ext .ts --ext .tsx --ext .js --ext .jsx ."
   },
   "repository": {
     "type": "git",

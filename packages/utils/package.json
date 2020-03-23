@@ -1,0 +1,34 @@
+{
+  "name": "@vubnguyen/utils",
+  "version": "0.0.1",
+  "description": "utils created by vu for vu\"",
+  "author": "Vu Nguyen <shardphoneix@gmail.com>",
+  "homepage": "https://github.com/vujita/vujita.github.io/tree/master/packages/utils#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib",
+    "src"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vujita/vubnguyen.git"
+  },
+  "scripts": {
+    "prebuild": "rimraf lib",
+    "build": "tsc"
+  },
+  "bugs": {
+    "url": "https://github.com/vujita/vubnguyen/issues"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^3.8.3"
+  }
+}

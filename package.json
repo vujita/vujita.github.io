@@ -4,6 +4,9 @@
   "description": "Vujita github page",
   "main": "index.js",
   "scripts": {
+    "prelerna:bootstrap": "lerna clean -y",
+    "lerna:bootstrap": "lerna bootstrap --hoist",
+    "postinstall": "npm run lerna:bootstrap",
     "prettier": "prettier --write .",
     "preeslint": "npm run prettier",
     "eslint": "eslint --fix --ext .ts --ext .tsx --ext .js --ext .jsx ."
@@ -29,8 +32,8 @@
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^2.5.1",
+    "lerna": "^3.20.2",
     "prettier": "^2.0.1",
     "typescript": "^3.8.3"
-  },
-  "dependencies": {}
+  }
 }

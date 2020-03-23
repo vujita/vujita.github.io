@@ -15,6 +15,7 @@
   },
   "homepage": "https://github.com/vujita/vujita.github.io#readme",
   "devDependencies": {
+    "eslint": "^6.8.0",
     "typescript": "^3.8.3"
   },
   "dependencies": {}

@@ -18,6 +18,8 @@ module.exports = {
   },
   plugins: ["prettier", "react", "@typescript-eslint"],
   rules: {
+    quotes: 0, // Let prettier handle this instead
+    "operator-linebreak": 0,
     "prettier/prettier": "error",
   },
 };

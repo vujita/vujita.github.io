@@ -1,13 +1,14 @@
-# I am hosting my site via github pages
 ![test](https://github.com/vujita/vubnguyen/workflows/test/badge.svg?branch=master)
+![coverage](https://img.shields.io/coveralls/github/vujita/vubnguyen)
 
+----------------------
+# I am hosting my site via github pages
 This lets me do a few things
 
 - It will be viewable on my personal [domain](http://vubnguyen.com), a gh-page
 
 
 ## Setup
------------
 Prequisites:
 
 [nvm](https://github.com/nvm-sh/nvm)

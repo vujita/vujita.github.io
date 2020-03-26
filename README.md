@@ -1,4 +1,5 @@
 # I am hosting my site via github pages
+![test](https://github.com/vujita/vubnguyen/workflows/test/badge.svg?branch=master)
 
 This lets me do a few things
 

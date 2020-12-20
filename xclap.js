@@ -14,7 +14,7 @@ load({
   'lint:all': [runManyForTarget('lint', '--fix')],
   'build:all': [
     'clean',
-    runManyForTarget('build'),
+    runManyForTarget('build', '--prod'),
     'format:check:all',
     'lint:all',
   ],

@@ -1,4 +1,4 @@
-const { load, exec } = require('@xarc/run');
+const { load, exec, concurrent } = require('@xarc/run');
 
 const runManyForTarget = (target, ...options) =>
   exec(
@@ -20,5 +20,8 @@ load({
   ],
   'e2e:all': [runManyForTarget('e2e')],
   'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
-  'test:all': ['build:all', 'format:check:all', 'test:unit', 'e2e:all'],
+  'test:all': [
+    'build:all',
+    concurrent('format:check:all', 'test:unit', 'e2e:all'),
+  ],
 });

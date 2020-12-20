@@ -4,18 +4,8 @@
   "description": "Vujita github page",
   "main": "index.js",
   "scripts": {
-    "prelerna:bootstrap": "lerna clean -y",
-    "lerna:bootstrap": "lerna bootstrap --hoist",
-    "postinstall": "npm run lerna:bootstrap",
-    "prettier": "prettier --write .",
-    "preeslint": "npm run prettier",
-    "eslint": "eslint --fix --ext .ts --ext .tsx --ext .js --ext .jsx .",
-    "prebuild": "npm run eslint",
-    "build": "lerna run build",
-    "test": "npm run jest",
-    "posttest": "npm run build",
-    "jest:watch": "jest --watch",
-    "jest": "jest --no-cache"
+    "prereinstall": "npx rimraf lib dist node_modules",
+    "reinstall": "yarn"
   },
   "repository": {
     "type": "git",
@@ -27,30 +17,5 @@
     "url": "https://github.com/vujita/vujita.github.io/issues"
   },
   "homepage": "https://github.com/vujita/vujita.github.io#readme",
-  "devDependencies": {
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
-    "@babel/preset-react": "^7.8.3",
-    "@babel/preset-typescript": "^7.8.3",
-    "@types/jest": "^25.1.4",
-    "@typescript-eslint/eslint-plugin": "^2.24.0",
-    "@typescript-eslint/parser": "^2.24.0",
-    "coveralls": "^3.0.11",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.10.1",
-    "eslint-plugin-import": "^2.20.1",
-    "eslint-plugin-jest": "^23.8.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
-    "eslint-plugin-sort-destructure-keys": "^1.3.3",
-    "eslint-plugin-sort-keys-fix": "^1.1.0",
-    "jest": "^25.1.0",
-    "lerna": "^3.20.2",
-    "prettier": "^2.0.1",
-    "rimraf": "^3.0.2",
-    "typescript": "^3.8.3"
-  }
+  "devDependencies": {}
 }

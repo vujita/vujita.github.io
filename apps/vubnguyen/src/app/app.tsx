@@ -1,9 +1,6 @@
-import React from 'react';
-
 import styles from './app.module.scss';
 
 import { ReactComponent as Logo } from '../assets/logo.svg';
-import star from '../assets/star.svg';
 
 export function App() {
   return (
@@ -24,7 +21,6 @@ export function App() {
             {' '}
             If you like Nx, please give it a star:
             <div className="github-star-badge">
-              <img src={star} className="material-icons" alt="" />
               Star
             </div>
           </a>

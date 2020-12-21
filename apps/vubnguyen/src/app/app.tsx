@@ -2,8 +2,8 @@ import React from 'react';
 
 import styles from './app.module.scss';
 
-import { ReactComponent as Logo } from './logo.svg';
-import star from './star.svg';
+import { ReactComponent as Logo } from '../assets/logo.svg';
+import star from '../assets/star.svg';
 
 export function App() {
   return (

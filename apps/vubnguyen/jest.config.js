@@ -12,4 +12,5 @@ module.exports = {
   collectCoverage: true,
   coverageReporters: ['json', 'text', 'lcov', 'clover'],
   coverageDirectory: '../../coverage/apps/vubnguyen',
+  testPathIgnorePatterns: ['<rootDir>/src/assets'],
 };

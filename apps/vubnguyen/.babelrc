@@ -1,4 +1,8 @@
 {
-  "presets": ["@nrwl/react/babel"],
-  "plugins": []
+  "presets": ["@nrwl/react/babel", ["@babel/preset-react", {
+    "runtime": "automatic"
+  }]],
+  "plugins": [ ["@babel/plugin-transform-react-jsx", {
+    "runtime": "automatic"
+  }]]
 }

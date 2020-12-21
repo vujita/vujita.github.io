@@ -1,18 +1,19 @@
 {
   "name": "vujita.github.io",
   "version": "2.0.0",
+  "private": true,
   "description": "Vujita github page",
-  "main": "index.js",
+  "homepage": "https://github.com/vujita/vujita.github.io#readme",
+  "bugs": {
+    "url": "https://github.com/vujita/vujita.github.io/issues"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vujita/vujita.github.io.git"
   },
-  "author": "Vu Nguyen",
   "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vujita/vujita.github.io/issues"
-  },
-  "homepage": "https://github.com/vujita/vujita.github.io#readme",
+  "author": "Vu Nguyen",
+  "main": "index.js",
   "scripts": {
     "affected": "nx affected",
     "affected:apps": "nx affected:apps",
@@ -44,19 +45,18 @@
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator"
   },
-  "private": true,
   "dependencies": {
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.1",
     "document-register-element": "1.13.1",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "tslib": "^2.0.0"
+    "tslib": "^2.0.3"
   },
   "devDependencies": {
-    "@babel/core": "7.9.6",
-    "@babel/preset-env": "7.9.6",
-    "@babel/preset-react": "7.9.4",
-    "@babel/preset-typescript": "7.9.0",
+    "@babel/core": "7.12.10",
+    "@babel/preset-env": "7.12.11",
+    "@babel/preset-react": "7.12.10",
+    "@babel/preset-typescript": "7.12.7",
     "@nrwl/cli": "11.0.15",
     "@nrwl/cypress": "11.0.15",
     "@nrwl/eslint-plugin-nx": "11.0.15",
@@ -65,33 +65,33 @@
     "@nrwl/tao": "11.0.15",
     "@nrwl/web": "11.0.15",
     "@nrwl/workspace": "11.0.15",
-    "@testing-library/react": "11.1.2",
-    "@types/jest": "26.0.8",
-    "@types/node": "12.12.38",
-    "@types/react": "16.9.56",
-    "@types/react-dom": "16.9.9",
-    "@typescript-eslint/eslint-plugin": "4.3.0",
-    "@typescript-eslint/parser": "4.3.0",
+    "@testing-library/react": "11.2.2",
+    "@types/jest": "26.0.19",
+    "@types/node": "14.14.14",
+    "@types/react": "17.0.0",
+    "@types/react-dom": "17.0.0",
+    "@typescript-eslint/eslint-plugin": "4.10.0",
+    "@typescript-eslint/parser": "4.10.0",
     "@xarc/run": "^1.0.3",
-    "babel-jest": "26.2.2",
-    "cypress": "^5.5.0",
-    "dotenv": "6.2.0",
-    "eslint": "7.10.0",
-    "eslint-config-prettier": "6.0.0",
-    "eslint-plugin-cypress": "^2.10.3",
+    "babel-jest": "26.6.3",
+    "cypress": "^6.1.0",
+    "dotenv": "8.2.0",
+    "eslint": "7.16.0",
+    "eslint-config-prettier": "7.1.0",
+    "eslint-plugin-cypress": "^2.11.2",
     "eslint-plugin-import": "2.22.1",
     "eslint-plugin-jsx-a11y": "6.4.1",
     "eslint-plugin-react": "7.21.5",
     "eslint-plugin-react-hooks": "4.2.0",
     "husky": "^4.3.6",
-    "jest": "26.2.2",
+    "jest": "26.6.3",
     "lint-staged": "^10.5.3",
     "markdownlint-cli": "^0.26.0",
-    "prettier": "2.1.2",
+    "prettier": "2.2.1",
     "rimraf": "^3.0.2",
-    "ts-jest": "26.4.0",
+    "ts-jest": "26.4.4",
     "ts-node": "~9.1.1",
     "tslint": "~6.1.0",
-    "typescript": "~4.0.3"
+    "typescript": "~4.1.3"
   }
 }

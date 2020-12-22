@@ -19,7 +19,7 @@
               "apps/vubnguyen/src/favicon.ico",
               "apps/vubnguyen/src/assets"
             ],
-            "styles": ["apps/vubnguyen/src/styles.scss"],
+            "styles": [],
             "scripts": [],
             "deployUrl": "/",
             "webpackConfig": "@nrwl/react/plugins/webpack"

@@ -14,7 +14,7 @@ import * as fs from 'fs-extra';
  * (@see https://github.com/nrwl/nx/blob/master/packages/node/src/builders/execute/execute.impl.ts#L162)
  */
 export const runWaitUntilTargets = (
-  options: { waitUntilTargets?: string[] },
+  options: { waitUntilTargets?: string[] } = { waitUntilTargets: [] },
   context: BuilderContext
 ): Observable<BuilderOutput> => {
   // Nothing to wait for

@@ -5,7 +5,14 @@
       "root": "apps/vubnguyen",
       "sourceRoot": "apps/vubnguyen/src",
       "projectType": "application",
+      "generators": {},
       "targets": {
+        "tsm-build": {
+          "executor": "./tools/builders/typed-scss-modules:tsm-build",
+          "options": {
+            "includePaths": ["token"]
+          }
+        },
         "build": {
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],

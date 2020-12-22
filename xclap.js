@@ -34,7 +34,7 @@ const createDeployDir = () => {
   });
 };
 load({
-  prettier: exec('prettier --write *.*'),
+  prettier: exec('prettier --write "**/*.*"'),
   clean: exec('rimraf dist tmp coverage'),
   createDeployDir: ['test:all', createDeployDir],
   'format:all': [runManyForTarget('format:write')],

@@ -34,23 +34,26 @@ const createDeployDir = () => {
   });
 };
 load({
-  prettier: exec('prettier --write *.*'),
-  clean: exec('rimraf dist tmp coverage'),
-  createDeployDir: ['test:all', createDeployDir],
-  'format:all': [runManyForTarget('format:write')],
-  'format:check:all': [runManyForTarget('format:check')],
-  'lint:all': [runManyForTarget('lint', '--fix')],
   'build:all': [
     'clean',
     runManyForTarget('build', '--prod'),
-    'format:check:all',
-    'lint:all',
+    'build:scss:types',
+    concurrent('format:check:all', 'lint:all'),
   ],
+  'build:scss:types': exec('nx run-many --target=tsm-build --all'),
+  clean: exec('rimraf dist tmp coverage'),
+  createDeployDir: ['test:all', createDeployDir],
   'e2e:all': [runManyForTarget('e2e')],
+  'format:all': [runManyForTarget('format:write')],
+  'format:check:all': [runManyForTarget('format:check')],
+  'lint:all': [runManyForTarget('lint', '--fix')],
+  prettier: exec('prettier --write "**/*.*"'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
-  'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
+  serve: concurrent(exec('nx serve'), 'watch:scss:types'),
   'test:all': [
     'build:all',
     concurrent('format:check:all', 'test:unit', 'e2e:all'),
   ],
+  'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
+  'watch:scss:types': concurrent(exec('nx run vubnguyen:tsm-build --watch')),
 });

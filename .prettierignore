@@ -7,3 +7,6 @@
 .prettierignore
 *rc
 .gitignore
+.gitkeep
+.idea
+.editorconfig

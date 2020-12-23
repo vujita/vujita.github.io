@@ -1,0 +1,15 @@
+{
+  "$schema": "../../../node_modules/@angular-devkit/architect/src/builders-schema.json",
+  "builders": {
+    "tsm-build": {
+      "description": "Generate typescript definitions for scss files that use css modules",
+      "implementation": "./tsm-build/index.js",
+      "schema": "./tsm-build/schema.json"
+    },
+    "tsm-check": {
+      "description": "Runs a tsm-build and ensures the files have changed",
+      "implementation": "./tsm-check/index.js",
+      "schema": "./tsm-build/schema.json"
+    }
+  }
+}

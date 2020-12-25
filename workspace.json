@@ -67,6 +67,12 @@
             }
           }
         },
+        "lint-styles": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx stylelint apps/vubnguyen/**/*.scss --fix"
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {

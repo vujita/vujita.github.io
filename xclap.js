@@ -46,7 +46,11 @@ load({
   'e2e:all': [runManyForTarget('e2e')],
   'format:all': [runManyForTarget('format:write')],
   'format:check:all': [runManyForTarget('format:check')],
-  'lint:all': ['prettier', runManyForTarget('lint', '--fix')],
+  'lint:all': [
+    'prettier',
+    runManyForTarget('lint', '--fix'),
+    runManyForTarget('lint-styles', '--fix'),
+  ],
   prettier: exec('prettier --write "**/*.*"'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
   serve: concurrent(exec('nx serve'), 'watch:scss:types'),

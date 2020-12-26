@@ -4,8 +4,6 @@
 /coverage
 *.lock
 *.log
-.prettierignore
-*rc
 .gitignore
 .gitkeep
 .idea

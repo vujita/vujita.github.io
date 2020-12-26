@@ -5,16 +5,28 @@ require('ts-node').register({
   preferTsExts: true,
   transpileOnly: true,
 });
-
 module.exports = {
   '*.md': 'markdownlint',
   '*': (files) => {
-    const commaSepFileList = files.join(',');
-    console.log(`Running format:write on these files ${commaSepFileList}`);
-    return [
-      `prettier --write ${files.join(' ')}`,
-      `nx format:write --files=${commaSepFileList}`,
-      `git add ${files.join(' ')}`,
-    ];
+    const ignorePatterns = [/rc$/, /ignore$/];
+    const filterIgnoreFiles = (file) => {
+      for (let i = 0; i < ignorePatterns.length; i++) {
+        const p = ignorePatterns[i];
+        if (p.test(file)) {
+          return false;
+        }
+      }
+      return true;
+    };
+    const editFiles = files.filter(filterIgnoreFiles);
+    const commaSepFileList = editFiles.join(',');
+
+    return commaSepFileList.length > 0
+      ? [
+          `prettier --write ${editFiles.join(' ')}`,
+          `nx format:write --files=${commaSepFileList}`,
+          `git add ${editFiles.join(' ')}`,
+        ]
+      : [];
   },
 };

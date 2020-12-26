@@ -56,7 +56,8 @@ load({
     runManyForTarget('lint', '--fix'),
     runManyForTarget('lint-styles', '--fix'),
   ],
-  prettier: exec('prettier --write .'),
+  prettier: [exec('prettier --write .'), 'stylelint'],
+  stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
   serve: concurrent(exec('nx serve'), 'watch:scss:types'),
   'test:all': [

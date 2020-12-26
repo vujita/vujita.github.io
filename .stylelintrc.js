@@ -1,7 +1,5 @@
 module.exports = {
   extends: [
-    'stylelint-config-prettier',
-    'stylelint-prettier',
     'stylelint-config-standard',
     'stylelint-config-sass-guidelines',
     'stylelint-config-idiomatic-order',

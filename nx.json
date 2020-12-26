@@ -29,6 +29,9 @@
     "vubnguyen-e2e": {
       "tags": [],
       "implicitDependencies": ["vubnguyen"]
+    },
+    "classnames": {
+      "tags": []
     }
   }
 }

@@ -7,7 +7,7 @@ const ghPages = require('gh-pages');
 
 const runManyForTarget = (target, ...options) =>
   exec(
-    `nx run-many --target="${target}" --all${
+    `nx run-many --target="${target}" --all --parallel${
       options.length > 0 ? ' ' : ''
     }${options.join(' ')}`
   );
@@ -36,8 +36,8 @@ const createDeployDir = () => {
 load({
   'build:all': [
     'clean',
-    runManyForTarget('build', '--prod'),
     'build:scss:types',
+    runManyForTarget('build', '--prod'),
     concurrent('format:check:all', 'lint:all'),
   ],
   'build:scss:types': exec('nx run-many --target=tsm-build --all'),
@@ -51,7 +51,7 @@ load({
     runManyForTarget('lint', '--fix'),
     runManyForTarget('lint-styles', '--fix'),
   ],
-  prettier: exec('prettier --write "**/*.*"'),
+  prettier: exec('prettier --write .'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
   serve: concurrent(exec('nx serve'), 'watch:scss:types'),
   'test:all': [

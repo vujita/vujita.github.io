@@ -114,6 +114,27 @@
           }
         }
       }
+    },
+    "classnames": {
+      "root": "libs/classnames",
+      "sourceRoot": "libs/classnames/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/classnames/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/classnames"],
+          "options": {
+            "jestConfig": "libs/classnames/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      }
     }
   },
   "cli": {

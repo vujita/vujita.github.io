@@ -1,10 +1,11 @@
 import styles from './app.module.scss';
-
 import { ReactComponent as Logo } from '../assets/logo.svg';
+import classnames from '@vubnguyen/classnames';
+const cn = classnames(styles);
 
 export function App() {
   return (
-    <div className={styles.app}>
+    <div className={cn({ app: true })}>
       <header className="flex">
         <Logo width="75" height="75" />
         <h1>Welcome to vubnguyen!</h1>
@@ -20,9 +21,7 @@ export function App() {
           >
             {' '}
             If you like Nx, please give it a star:
-            <div className="github-star-badge">
-              Star
-            </div>
+            <div className="github-star-badge">Star</div>
           </a>
         </div>
         <p>Here are some links to help you get started.</p>

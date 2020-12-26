@@ -1,5 +1,4 @@
 {
-  "extends": "../tsconfig.base.json",
   "compilerOptions": {
     "importHelpers": false,
     "outDir": "../dist/out-tsc/tools",
@@ -8,5 +7,6 @@
     "target": "es5",
     "types": ["node"]
   },
+  "extends": "../tsconfig.base.json",
   "include": ["**/*.ts"]
 }

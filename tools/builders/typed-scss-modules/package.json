@@ -2,8 +2,8 @@
   "name": "@vubnguyen/typed-scss-modules",
   "version": "0.0.1",
   "description": "Builder to generate typescript types for scss files",
-  "builders": "builders.json",
   "devDependencies": {
     "@angular-devkit/architect": "*"
-  }
+  },
+  "builders": "builders.json"
 }

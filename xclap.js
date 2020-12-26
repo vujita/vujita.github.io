@@ -9,7 +9,7 @@ const runManyForTarget = (target, ...options) =>
   exec(
     `nx run-many --target="${target}" --all --parallel${
       options.length > 0 ? ' ' : ''
-    }${options.join(' ')}`
+    }${options.join(' ')}`,
   );
 const ghDir = path.join(__dirname, 'deploy');
 const publishGhFolder = () => {
@@ -21,6 +21,10 @@ const publishGhFolder = () => {
     }
   });
 };
+const clean = [exec('rimraf dist tmp coverage')];
+if (process.env.CI) {
+  clean.push('clean:cache');
+}
 const createDeployDir = () => {
   const vubnguyenSrc = path.join(__dirname, 'dist', 'apps', 'vubnguyen');
   if (fs.existsSync(ghDir)) {
@@ -41,7 +45,8 @@ load({
     concurrent('format:check:all', 'lint:all'),
   ],
   'build:scss:types': exec('nx run-many --target=tsm-build --all'),
-  clean: exec('rimraf dist tmp coverage node_modules/.cache/'),
+  'clean:cache': exec('rimraf node_modules/.cache'),
+  clean,
   createDeployDir: ['test:all', createDeployDir],
   'e2e:all': [runManyForTarget('e2e')],
   'format:all': [runManyForTarget('format:write')],

@@ -32,11 +32,11 @@ describe('Classnames', () => {
     expect(cn('vu', { test: true, test1: false })).toBe('vu randomhashone');
     // @ts-ignore
     expect(cn('vu', { test: true }, 'test1')).toBe(
-      'vu randomhashone randomhashtwo'
+      'vu randomhashone randomhashtwo',
     );
     // @ts-ignore
     expect(cn('vu', { test: true, test1: false, nguyen: true })).toBe(
-      'vu randomhashone nguyen'
+      'vu randomhashone nguyen',
     );
   });
 });

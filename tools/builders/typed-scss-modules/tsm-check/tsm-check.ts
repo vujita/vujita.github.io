@@ -9,7 +9,7 @@ import { runBuilder } from '../tsm-build/tsm-build';
 
 export const runTSMCheck: BuilderHandlerFn<Schema> = async (
   options: Schema,
-  context: BuilderContext
+  context: BuilderContext,
 ): Promise<{ success: boolean }> => {
   await runBuilder(options, context);
   const { stdout } = await execa('git', ['status', '--porcelain']);

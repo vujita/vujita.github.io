@@ -22,7 +22,7 @@ const createTSMOptions = (options: Schema): string[] => {
 };
 export const runBuilder: BuilderHandlerFn<Schema> = async (
   options: Schema,
-  context: BuilderContext
+  context: BuilderContext,
 ): Promise<BuilderOutput> => {
   const workspaceRoot = context.workspaceRoot;
   const projectRoot = await getProjectRoot(context);
@@ -32,7 +32,7 @@ export const runBuilder: BuilderHandlerFn<Schema> = async (
       createTSMOptions(options),
       {
         cwd: join(workspaceRoot, projectRoot),
-      }
+      },
     );
     cp.on('error', (err): void => {
       reject({ success: false, err });

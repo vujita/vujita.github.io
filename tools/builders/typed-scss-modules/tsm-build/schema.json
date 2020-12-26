@@ -1,7 +1,5 @@
 {
-  "title": "Typed Sass modules builder",
   "description": "Generate typescript definitions (*.d.ts) files for CSS modules",
-  "type": "object",
   "properties": {
     "globPattern": {
       "type": "string",
@@ -21,5 +19,7 @@
       "default": false,
       "description": "Watch for files that get added or changed"
     }
-  }
+  },
+  "title": "Typed Sass modules builder",
+  "type": "object"
 }

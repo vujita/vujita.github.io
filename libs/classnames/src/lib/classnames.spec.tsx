@@ -11,9 +11,9 @@ describe('Classnames', () => {
   let cn: (...classes: ClassValue<keyof StyleHash>[]) => string;
   beforeEach((): void => {
     styleHash = {
+      bgWhite: 'backgroundColorWhite',
       test: 'randomhashone',
       test1: 'randomhashtwo',
-      bgWhite: 'backgroundColorWhite',
     };
     cn = classnames<keyof StyleHash>(styleHash);
   });
@@ -35,7 +35,7 @@ describe('Classnames', () => {
       'vu randomhashone randomhashtwo',
     );
     // @ts-ignore
-    expect(cn('vu', { test: true, test1: false, nguyen: true })).toBe(
+    expect(cn('vu', { nguyen: true, test: true, test1: false })).toBe(
       'vu randomhashone nguyen',
     );
   });

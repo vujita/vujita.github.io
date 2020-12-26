@@ -1,12 +1,12 @@
 module.exports = {
+  coverageDirectory: '../../coverage/libs/classnames',
   displayName: 'classnames',
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
   preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
-      { cwd: __dirname, configFile: './babel-jest.config.json' },
+      { configFile: './babel-jest.config.json', cwd: __dirname },
     ],
   },
-  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/classnames',
 };

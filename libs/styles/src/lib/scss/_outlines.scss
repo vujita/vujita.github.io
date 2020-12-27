@@ -1,0 +1,27 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .outline {
+    outline: 1px solid;
+  }
+
+  .outlineTransparent {
+    outline: 1px solid transparent;
+  }
+
+  .outline0 {
+    outline: 0;
+  }
+
+  @media #{$media} {
+    .outline#{$postfix} {
+      outline: 1px solid;
+    }
+    .outlineTransparent#{$postfix} {
+      outline: 1px solid transparent;
+    }
+    .outline0#{$postfix} {
+      outline: 0;
+    }
+  }
+}

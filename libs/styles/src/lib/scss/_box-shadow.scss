@@ -1,0 +1,41 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .shadow1 {
+    box-shadow: $box-shadow-1;
+  }
+
+  .shadow2 {
+    box-shadow: $box-shadow-2;
+  }
+
+  .shadow3 {
+    box-shadow: $box-shadow-3;
+  }
+
+  .shadow4 {
+    box-shadow: $box-shadow-4;
+  }
+
+  .shadow5 {
+    box-shadow: $box-shadow-5;
+  }
+
+  @media #{$media} {
+    .shadow1#{$postfix} {
+      box-shadow: $box-shadow-1;
+    }
+    .shadow2#{$postfix} {
+      box-shadow: $box-shadow-2;
+    }
+    .shadow3#{$postfix} {
+      box-shadow: $box-shadow-3;
+    }
+    .shadow4#{$postfix} {
+      box-shadow: $box-shadow-4;
+    }
+    .shadow5#{$postfix} {
+      box-shadow: $box-shadow-5;
+    }
+  }
+}

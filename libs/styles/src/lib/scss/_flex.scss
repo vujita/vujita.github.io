@@ -1,0 +1,346 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .flex {
+    display: flex;
+  }
+
+  .inlineFlex {
+    display: inline-flex;
+  }
+
+  /* 1. Fix for Chrome 44 bug.
+ * https://code.google.com/p/chromium/issues/detail?id=506893 */
+  .flexAuto {
+    min-width: 0; /* 1 */
+    min-height: 0; /* 1 */
+    flex: 1 1 auto;
+  }
+
+  .flexNone {
+    flex: none;
+  }
+
+  .flexColumn {
+    flex-direction: column;
+  }
+
+  .flexRow {
+    flex-direction: row;
+  }
+
+  .flexWrap {
+    flex-wrap: wrap;
+  }
+
+  .flexNowrap {
+    flex-wrap: nowrap;
+  }
+
+  .flexWrapReverse {
+    flex-wrap: wrap-reverse;
+  }
+
+  .flexColumnReverse {
+    flex-direction: column-reverse;
+  }
+
+  .flexRowReverse {
+    flex-direction: row-reverse;
+  }
+
+  .itemsStart {
+    align-items: flex-start;
+  }
+
+  .itemsEnd {
+    align-items: flex-end;
+  }
+
+  .itemsCenter {
+    align-items: center;
+  }
+
+  .itemsBaseline {
+    align-items: baseline;
+  }
+
+  .itemsStretch {
+    align-items: stretch;
+  }
+
+  .selfStart {
+    align-self: flex-start;
+  }
+
+  .selfEnd {
+    align-self: flex-end;
+  }
+
+  .selfCenter {
+    align-self: center;
+  }
+
+  .selfBaseline {
+    align-self: baseline;
+  }
+
+  .selfStretch {
+    align-self: stretch;
+  }
+
+  .justifyStart {
+    justify-content: flex-start;
+  }
+
+  .justifyEnd {
+    justify-content: flex-end;
+  }
+
+  .justifyCenter {
+    justify-content: center;
+  }
+
+  .justifyBetween {
+    justify-content: space-between;
+  }
+
+  .justifyAround {
+    justify-content: space-around;
+  }
+
+  .contentStart {
+    align-content: flex-start;
+  }
+
+  .contentEnd {
+    align-content: flex-end;
+  }
+
+  .contentCenter {
+    align-content: center;
+  }
+
+  .contentBetween {
+    align-content: space-between;
+  }
+
+  .contentAround {
+    align-content: space-around;
+  }
+
+  .contentStretch {
+    align-content: stretch;
+  }
+
+  .order0 {
+    order: 0;
+  }
+
+  .order1 {
+    order: 1;
+  }
+
+  .order2 {
+    order: 2;
+  }
+
+  .order3 {
+    order: 3;
+  }
+
+  .order4 {
+    order: 4;
+  }
+
+  .order5 {
+    order: 5;
+  }
+
+  .order6 {
+    order: 6;
+  }
+
+  .order7 {
+    order: 7;
+  }
+
+  .order8 {
+    order: 8;
+  }
+
+  .orderLast {
+    order: 99999;
+  }
+
+  .flexGrow0 {
+    flex-grow: 0;
+  }
+
+  .flexGrow1 {
+    flex-grow: 1;
+  }
+
+  .flexShrink0 {
+    flex-shrink: 0;
+  }
+
+  .flexShrink1 {
+    flex-shrink: 1;
+  }
+
+  @media #{$media} {
+    .flex#{$postfix} {
+      display: flex;
+    }
+    .inlineFlex#{$postfix} {
+      display: inline-flex;
+    }
+
+    /* 1. Fix for Chrome 44 bug.
+   * https://code.google.com/p/chromium/issues/detail?id=506893 */
+    .flexAuto#{$postfix} {
+      min-width: 0; /* 1 */
+      min-height: 0; /* 1 */
+      flex: 1 1 auto;
+    }
+
+    .flexNone#{$postfix} {
+      flex: none;
+    }
+
+    .flexColumn#{$postfix} {
+      flex-direction: column;
+    }
+    .flexRow#{$postfix} {
+      flex-direction: row;
+    }
+    .flexWrap#{$postfix} {
+      flex-wrap: wrap;
+    }
+    .flexNowrap#{$postfix} {
+      flex-wrap: nowrap;
+    }
+    .flexWrapReverse#{$postfix} {
+      flex-wrap: wrap-reverse;
+    }
+    .flexColumnReverse#{$postfix} {
+      flex-direction: column-reverse;
+    }
+    .flexRowReverse#{$postfix} {
+      flex-direction: row-reverse;
+    }
+
+    .itemsStart#{$postfix} {
+      align-items: flex-start;
+    }
+    .itemsEnd#{$postfix} {
+      align-items: flex-end;
+    }
+    .itemsCenter#{$postfix} {
+      align-items: center;
+    }
+    .itemsBaseline#{$postfix} {
+      align-items: baseline;
+    }
+    .itemsStretch#{$postfix} {
+      align-items: stretch;
+    }
+
+    .selfStart#{$postfix} {
+      align-self: flex-start;
+    }
+    .selfEnd#{$postfix} {
+      align-self: flex-end;
+    }
+    .selfCenter#{$postfix} {
+      align-self: center;
+    }
+    .selfBaseline#{$postfix} {
+      align-self: baseline;
+    }
+    .selfStretch#{$postfix} {
+      align-self: stretch;
+    }
+
+    .justifyStart#{$postfix} {
+      justify-content: flex-start;
+    }
+    .justifyEnd#{$postfix} {
+      justify-content: flex-end;
+    }
+    .justifyCenter#{$postfix} {
+      justify-content: center;
+    }
+    .justifyBetween#{$postfix} {
+      justify-content: space-between;
+    }
+    .justifyAround#{$postfix} {
+      justify-content: space-around;
+    }
+
+    .contentStart#{$postfix} {
+      align-content: flex-start;
+    }
+    .contentEnd#{$postfix} {
+      align-content: flex-end;
+    }
+    .contentCenter#{$postfix} {
+      align-content: center;
+    }
+    .contentBetween#{$postfix} {
+      align-content: space-between;
+    }
+    .contentAround#{$postfix} {
+      align-content: space-around;
+    }
+    .contentStretch#{$postfix} {
+      align-content: stretch;
+    }
+
+    .order0#{$postfix} {
+      order: 0;
+    }
+    .order1#{$postfix} {
+      order: 1;
+    }
+    .order2#{$postfix} {
+      order: 2;
+    }
+    .order3#{$postfix} {
+      order: 3;
+    }
+    .order4#{$postfix} {
+      order: 4;
+    }
+    .order5#{$postfix} {
+      order: 5;
+    }
+    .order6#{$postfix} {
+      order: 6;
+    }
+    .order7#{$postfix} {
+      order: 7;
+    }
+    .order8#{$postfix} {
+      order: 8;
+    }
+    .orderLast#{$postfix} {
+      order: 99999;
+    }
+
+    .flexGrow0#{$postfix} {
+      flex-grow: 0;
+    }
+    .flexGrow1#{$postfix} {
+      flex-grow: 1;
+    }
+
+    .flexShrink0#{$postfix} {
+      flex-shrink: 0;
+    }
+    .flexShrink1#{$postfix} {
+      flex-shrink: 1;
+    }
+  }
+}

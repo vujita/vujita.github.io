@@ -131,6 +131,9 @@ $washed-yellow: #fffceb !default;
 $washed-red: #ffdfdf !default;
 
 // Custom Media Query Variables
+$breakpoint-map: 'screen and (min-width: 30em)' 'Ns',
+  'screen and (min-width: 30em) and (max-width: 60em)' 'Md',
+  'screen and (min-width: 60em)' 'Lg';
 
 $breakpoint-not-small: 'screen and (min-width: 30em)' !default;
 $breakpoint-medium: 'screen and (min-width: 30em) and (max-width: 60em)' !default;

@@ -5,7 +5,9 @@ export type ClassValue<T extends string = string> =
   | ClassValue<T>[];
 type valType = string | number;
 
-export default <T extends string = string>(styleHash: Record<T, string>) => {
+export default <T extends string = string>(
+  styleHash: Record<T, string> = {} as Record<T, string>,
+) => {
   const classNames = (...classes: ClassValue<T>[]): string => {
     const computedClasses: valType[] = [];
     for (let i = 0; i < classes.length; i++) {

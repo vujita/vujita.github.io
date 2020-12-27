@@ -1,0 +1,20 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .cover {
+    background-size: cover !important;
+  }
+
+  .contain {
+    background-size: contain !important;
+  }
+
+  @media #{$media} {
+    .cover#{$postfix} {
+      background-size: cover !important;
+    }
+    .contain#{$postfix} {
+      background-size: contain !important;
+    }
+  }
+}

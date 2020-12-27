@@ -1,0 +1,150 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .top0 {
+    top: 0;
+  }
+
+  .right0 {
+    right: 0;
+  }
+
+  .bottom0 {
+    bottom: 0;
+  }
+
+  .left0 {
+    left: 0;
+  }
+
+  .top1 {
+    top: 1rem;
+  }
+
+  .right1 {
+    right: 1rem;
+  }
+
+  .bottom1 {
+    bottom: 1rem;
+  }
+
+  .left1 {
+    left: 1rem;
+  }
+
+  .top2 {
+    top: 2rem;
+  }
+
+  .right2 {
+    right: 2rem;
+  }
+
+  .bottom2 {
+    bottom: 2rem;
+  }
+
+  .left2 {
+    left: 2rem;
+  }
+
+  .topNeg1 {
+    top: -1rem;
+  }
+
+  .rightNeg1 {
+    right: -1rem;
+  }
+
+  .bottomNeg1 {
+    bottom: -1rem;
+  }
+
+  .leftNeg1 {
+    left: -1rem;
+  }
+
+  .topNeg2 {
+    top: -2rem;
+  }
+
+  .rightNeg2 {
+    right: -2rem;
+  }
+
+  .bottomNeg2 {
+    bottom: -2rem;
+  }
+
+  .leftNeg2 {
+    left: -2rem;
+  }
+
+  @media #{$media} {
+    .top0#{$postfix} {
+      top: 0;
+    }
+    .right0#{$postfix} {
+      right: 0;
+    }
+    .bottom0#{$postfix} {
+      bottom: 0;
+    }
+    .left0#{$postfix} {
+      left: 0;
+    }
+
+    .top1#{$postfix} {
+      top: 1rem;
+    }
+    .right1#{$postfix} {
+      right: 1rem;
+    }
+    .bottom1#{$postfix} {
+      bottom: 1rem;
+    }
+    .left1#{$postfix} {
+      left: 1rem;
+    }
+
+    .top2#{$postfix} {
+      top: 2rem;
+    }
+    .right2#{$postfix} {
+      right: 2rem;
+    }
+    .bottom2#{$postfix} {
+      bottom: 2rem;
+    }
+    .left2#{$postfix} {
+      left: 2rem;
+    }
+
+    .topNeg1#{$postfix} {
+      top: -1rem;
+    }
+    .rightNeg1#{$postfix} {
+      right: -1rem;
+    }
+    .bottomNeg1#{$postfix} {
+      bottom: -1rem;
+    }
+    .leftNeg1#{$postfix} {
+      left: -1rem;
+    }
+
+    .topNeg2#{$postfix} {
+      top: -2rem;
+    }
+    .rightNeg2#{$postfix} {
+      right: -2rem;
+    }
+    .bottomNeg2#{$postfix} {
+      bottom: -2rem;
+    }
+    .leftNeg2#{$postfix} {
+      left: -2rem;
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .ttc {
+    text-transform: capitalize;
+  }
+
+  .ttl {
+    text-transform: lowercase;
+  }
+
+  .ttu {
+    text-transform: uppercase;
+  }
+
+  .ttn {
+    text-transform: none;
+  }
+
+  @media #{$media} {
+    .ttc#{$postfix} {
+      text-transform: capitalize;
+    }
+    .ttl#{$postfix} {
+      text-transform: lowercase;
+    }
+    .ttu#{$postfix} {
+      text-transform: uppercase;
+    }
+    .ttn#{$postfix} {
+      text-transform: none;
+    }
+  }
+}

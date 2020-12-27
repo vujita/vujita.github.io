@@ -1,3 +1,3 @@
-export const debug: string;
-export const debugBlack: string;
-export const debugWhite: string;
+export const dbg: string;
+export const dbgBlack: string;
+export const dbgWhite: string;

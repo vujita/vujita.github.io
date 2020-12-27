@@ -37,6 +37,7 @@ const createDeployDir = () => {
     fs.copyFileSync(path.join(__dirname, f), path.join(ghDir, f));
   });
 };
+
 load({
   'build:all': [
     'clean',
@@ -60,6 +61,7 @@ load({
   ],
   prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
   stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
+  prod: exec('nx serve --configuration=production'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
   serve: concurrent(exec('nx serve'), 'watch:scss:types'),
   'test:all': [

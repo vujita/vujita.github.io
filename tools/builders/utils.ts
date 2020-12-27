@@ -15,7 +15,7 @@ import * as fs from 'fs-extra';
  */
 export const runWaitUntilTargets = (
   options: { waitUntilTargets?: string[] } = { waitUntilTargets: [] },
-  context: BuilderContext
+  context: BuilderContext,
 ): Observable<BuilderOutput> => {
   // Nothing to wait for
   if (!options.waitUntilTargets || options.waitUntilTargets.length === 0) {
@@ -26,18 +26,18 @@ export const runWaitUntilTargets = (
     ...options.waitUntilTargets.map((b) => {
       return scheduleTargetAndForget(context, targetFromTargetString(b)).pipe(
         filter((e) => e.success !== undefined),
-        first()
+        first(),
       );
-    })
+    }),
   ).pipe(
     map((results) => {
       return { success: !results.some((r) => !r.success) };
-    })
+    }),
   );
 };
 
 export const getProjectRoot = async (
-  context: BuilderContext
+  context: BuilderContext,
 ): Promise<string> => {
   const projectMeta = await context.getProjectMetadata(context.target!.project);
   if (projectMeta.root) {

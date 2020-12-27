@@ -1,5 +1,4 @@
 {
-  "npmScope": "vubnguyen",
   "affected": {
     "defaultBase": "master"
   },
@@ -14,14 +13,7 @@
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
-  "tasksRunnerOptions": {
-    "default": {
-      "runner": "@nrwl/workspace/tasks-runners/default",
-      "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
-      }
-    }
-  },
+  "npmScope": "vubnguyen",
   "projects": {
     "vubnguyen": {
       "tags": []
@@ -32,6 +24,14 @@
     },
     "classnames": {
       "tags": []
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "@nrwl/workspace/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "lint", "test", "e2e"]
+      }
     }
   }
 }

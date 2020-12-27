@@ -1,0 +1,13 @@
+@import './variables';
+
+.dbg * {
+  outline: 1px solid $gold;
+}
+
+.dbgWhite * {
+  outline: 1px solid $white;
+}
+
+.dbgBlack * {
+  outline: 1px solid $black;
+}

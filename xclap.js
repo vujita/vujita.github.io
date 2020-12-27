@@ -52,6 +52,7 @@ load({
   'format:all': [runManyForTarget('format:write')],
   'format:check:all': [runManyForTarget('format:check')],
   'lint:all': [
+    'build:scss:types',
     'prettier',
     runManyForTarget('lint', '--fix'),
     runManyForTarget('lint-styles', '--fix'),

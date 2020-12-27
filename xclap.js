@@ -40,9 +40,8 @@ const createDeployDir = () => {
 load({
   'build:all': [
     'clean',
-    'lint:all',
-    runManyForTarget('build', '--prod'),
     concurrent('format:check:all', 'lint:all'),
+    runManyForTarget('build', '--prod'),
   ],
   'build:scss:types': exec('nx run-many --target=tsm-build --all'),
   'clean:cache': exec('rimraf node_modules/.cache'),

@@ -36,6 +36,7 @@
     "lint": "nx workspace-lint && nx lint",
     "lint:all": "clap lint:all",
     "nx": "nx",
+    "prod": "clap prod",
     "prereinstall": "npx rimraf lib dist node_modules",
     "reinstall": "yarn",
     "start": "clap serve",

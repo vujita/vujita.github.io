@@ -1,0 +1,62 @@
+/*
+
+  Z-INDEX
+  MDN: https://developer.mozilla.org/en/docs/Web/CSS/z-index
+  Spec: http://www.w3.org/TR/CSS2/zindex.html
+  Articles:
+    https://philipwalton.com/articles/what-no-one-told-you-about-z-index/
+
+  Tips on extending:
+  There might be a time worth using negative z-index values.
+  Or if you are using tachyons with another project, you might need to
+  adjust these values to suit your needs.
+
+*/
+
+.z0 {
+  z-index: 0;
+}
+
+.z1 {
+  z-index: 1;
+}
+
+.z2 {
+  z-index: 2;
+}
+
+.z3 {
+  z-index: 3;
+}
+
+.z4 {
+  z-index: 4;
+}
+
+.z5 {
+  z-index: 5;
+}
+
+.z999 {
+  z-index: 999;
+}
+
+.z9999 {
+  z-index: 9999;
+}
+
+.zMax {
+  z-index: 2147483647;
+}
+
+.zInherit {
+  z-index: inherit;
+}
+
+.zInitial {
+  z-index: initial;
+}
+
+.zUnset {
+  z-index: unset;
+}

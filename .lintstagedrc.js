@@ -1,7 +1,8 @@
 module.exports = {
   '*.md': 'markdownlint',
-  '*': (files) => {
-    const ignorePatterns = [/rc$/, /ignore$/];
+  '*.{css|scss}': ['stylelint', 'git add'],
+  '*.{js,jsx,ts,tsx,json}': (files) => {
+    const ignorePatterns = [/rc$/, /ignore$/, /\.{scss|css}$/];
     const filterIgnoreFiles = (file) => {
       for (let i = 0; i < ignorePatterns.length; i++) {
         const p = ignorePatterns[i];

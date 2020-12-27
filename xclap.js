@@ -40,7 +40,7 @@ const createDeployDir = () => {
 load({
   'build:all': [
     'clean',
-    'build:scss:types',
+    'lint:all',
     runManyForTarget('build', '--prod'),
     concurrent('format:check:all', 'lint:all'),
   ],
@@ -52,11 +52,14 @@ load({
   'format:all': [runManyForTarget('format:write')],
   'format:check:all': [runManyForTarget('format:check')],
   'lint:all': [
+    'build:scss:types',
     'prettier',
-    runManyForTarget('lint', '--fix'),
-    runManyForTarget('lint-styles', '--fix'),
+    concurrent(
+      runManyForTarget('lint', '--fix'),
+      runManyForTarget('lint-styles', '--fix'),
+    ),
   ],
-  prettier: [exec('prettier --write .'), 'stylelint'],
+  prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
   stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
   serve: concurrent(exec('nx serve'), 'watch:scss:types'),
@@ -65,5 +68,8 @@ load({
     concurrent('format:check:all', 'test:unit', 'e2e:all'),
   ],
   'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
-  'watch:scss:types': concurrent(exec('nx run vubnguyen:tsm-build --watch')),
+  'watch:scss:types': concurrent(
+    exec('nx run vubnguyen:tsm-build --watch'),
+    exec('nx run styles:tsm-build --watch'),
+  ),
 });

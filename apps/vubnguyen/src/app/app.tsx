@@ -1,12 +1,10 @@
-import styles from './app.module.scss';
 import { ReactComponent as Logo } from '../assets/logo.svg';
-import classnames from '@vubnguyen/classnames';
-const cn = classnames(styles);
+import { classnames as cn } from '@vubnguyen/styles';
 
 export function App() {
   return (
-    <div className={cn({ app: true })}>
-      <header className="flex">
+    <div className={cn({ dbg: process.env.NODE_ENV === 'development' })}>
+      <header>
         <Logo width="75" height="75" />
         <h1>Welcome to vubnguyen!</h1>
       </header>

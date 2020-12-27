@@ -1,0 +1,83 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .normal {
+    font-weight: normal;
+  }
+
+  .b {
+    font-weight: bold;
+  }
+
+  .fw1 {
+    font-weight: 100;
+  }
+
+  .fw2 {
+    font-weight: 200;
+  }
+
+  .fw3 {
+    font-weight: 300;
+  }
+
+  .fw4 {
+    font-weight: 400;
+  }
+
+  .fw5 {
+    font-weight: 500;
+  }
+
+  .fw6 {
+    font-weight: 600;
+  }
+
+  .fw7 {
+    font-weight: 700;
+  }
+
+  .fw8 {
+    font-weight: 800;
+  }
+
+  .fw9 {
+    font-weight: 900;
+  }
+
+  @media #{$media} {
+    .normal#{$postfix} {
+      font-weight: normal;
+    }
+    .b#{$postfix} {
+      font-weight: bold;
+    }
+    .fw1#{$postfix} {
+      font-weight: 100;
+    }
+    .fw2#{$postfix} {
+      font-weight: 200;
+    }
+    .fw3#{$postfix} {
+      font-weight: 300;
+    }
+    .fw4#{$postfix} {
+      font-weight: 400;
+    }
+    .fw5#{$postfix} {
+      font-weight: 500;
+    }
+    .fw6#{$postfix} {
+      font-weight: 600;
+    }
+    .fw7#{$postfix} {
+      font-weight: 700;
+    }
+    .fw8#{$postfix} {
+      font-weight: 800;
+    }
+    .fw9#{$postfix} {
+      font-weight: 900;
+    }
+  }
+}

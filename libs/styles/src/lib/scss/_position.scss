@@ -1,0 +1,35 @@
+@import './variables';
+
+@each $media, $postfix in $breakpoint-map {
+  .static {
+    position: static;
+  }
+
+  .relative {
+    position: relative;
+  }
+
+  .absolute {
+    position: absolute;
+  }
+
+  .fixed {
+    position: fixed;
+  }
+
+  @media #{$media} {
+    .static#{$postfix} {
+      position: static;
+    }
+    .relative#{$postfix} {
+      position: relative;
+    }
+    .absolute#{$postfix} {
+      position: absolute;
+    }
+
+    .fixed#{$postfix} {
+      position: fixed;
+    }
+  }
+}

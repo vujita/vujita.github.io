@@ -86,12 +86,6 @@
             }
           }
         },
-        "lint-styles": {
-          "executor": "@nrwl/workspace:run-commands",
-          "options": {
-            "command": "npx stylelint apps/vubnguyen/**/*.scss --fix"
-          }
-        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
@@ -151,6 +145,39 @@
           "options": {
             "jestConfig": "libs/classnames/jest.config.js",
             "passWithNoTests": true
+          }
+        }
+      }
+    },
+    "styles": {
+      "root": "libs/styles",
+      "sourceRoot": "libs/styles/src",
+      "projectType": "library",
+      "targets": {
+        "lint": {
+          "executor": "@nrwl/linter:eslint",
+          "options": {
+            "lintFilePatterns": ["libs/styles/**/*.{ts,tsx,js,jsx}"]
+          }
+        },
+        "test": {
+          "executor": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/styles"],
+          "options": {
+            "jestConfig": "libs/styles/jest.config.js",
+            "passWithNoTests": true
+          }
+        },
+        "lint-styles": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "command": "npx stylelint libs/styles/src/**/*.scss --fix"
+          }
+        },
+        "tsm-build": {
+          "executor": "./tools/builders/typed-scss-modules:tsm-build",
+          "options": {
+            "includePaths": ["token"]
           }
         }
       }

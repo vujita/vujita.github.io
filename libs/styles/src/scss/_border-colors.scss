@@ -1,0 +1,28 @@
+@import 'variables';
+
+$border-colors: 'black' $black, 'NearBlack' $near-black, 'DarkGray' $dark-gray,
+  'MidGray' $mid-gray, 'Gray' $gray, 'Silver' $silver,
+  'LightSilver' $light-silver, 'MoonGray' $moon-gray, 'LightGray' $light-gray,
+  'NearWhite' $near-white, 'White' $white, 'White90' $white-90,
+  'White80' $white-80, 'White70' $white-70, 'White60' $white-60,
+  'White50' $white-50, 'White40' $white-40, 'White30' $white-30,
+  'White20' $white-20, 'White10' $white-10, 'White05' $white-05,
+  'White025' $white-025, 'White0125' $white-0125, 'Black90' $black-90,
+  'Black80' $black-80, 'Black70' $black-70, 'Black60' $black-60,
+  'Black50' $black-50, 'black-40' $black-40, 'Black30' $black-30,
+  'Black20' $black-20, 'Black10' $black-10, 'Black05' $black-05,
+  'Black025' $black-025, 'Black0125' $black-0125, 'DarkRed' $dark-red,
+  'Red' $red, 'Light-red' $light-red, 'Orange' $orange, 'Gold' $gold,
+  'Yellow' $yellow, 'Light-yellow' $light-yellow, 'Purple' $purple,
+  'Light-purple' $light-purple, 'DarkPink' $dark-pink, 'HotPink' $hot-pink,
+  'Pink' $pink, 'LightPink' $light-pink, 'DarkGreen' $dark-green, 'Green' $green,
+  'Light-green' $light-green, 'Navy' $navy, 'DarkBlue' $dark-blue, 'Blue' $blue,
+  'LightBlue' $light-blue, 'LightestBlue' $lightest-blue,
+  'WashedBlue' $washed-blue, 'WashedGreen' $washed-green,
+  'WashedYellow' $washed-yellow, 'WashedRed' $washed-red, 'Inherit' inheerit;
+
+@each $border-color-name, $border-color in $border-colors {
+  .bClr#{$border-color-name} {
+    border-color: $border-color;
+  }
+}

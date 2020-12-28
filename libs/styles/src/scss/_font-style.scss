@@ -1,0 +1,20 @@
+@import 'variables';
+
+.i {
+  font-style: italic;
+}
+
+.fsNormal {
+  font-style: normal;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .i#{$postfix} {
+      font-style: italic;
+    }
+    .fsNormal#{$postfix} {
+      font-style: normal;
+    }
+  }
+}

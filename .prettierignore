@@ -8,3 +8,4 @@
 .gitkeep
 .idea
 .editorconfig
+libs/styles/src/css/*.css

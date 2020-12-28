@@ -1,0 +1,97 @@
+@import 'variables';
+
+/* Max Width Percentages */
+
+.mw100 {
+  max-width: 100%;
+}
+
+/* Max Width Scale */
+
+.mw1 {
+  max-width: $max-width-1;
+}
+
+.mw2 {
+  max-width: $max-width-2;
+}
+
+.mw3 {
+  max-width: $max-width-3;
+}
+
+.mw4 {
+  max-width: $max-width-4;
+}
+
+.mw5 {
+  max-width: $max-width-5;
+}
+
+.mw6 {
+  max-width: $max-width-6;
+}
+
+.mw7 {
+  max-width: $max-width-7;
+}
+
+.mw8 {
+  max-width: $max-width-8;
+}
+
+.mw9 {
+  max-width: $max-width-9;
+}
+
+/* Max Width String Properties */
+
+.mwNone {
+  max-width: none;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    /* Max Width Percentages */
+
+    .mw100#{$postfix} {
+      max-width: 100%;
+    }
+
+    /* Max Width Scale */
+
+    .mw1#{$postfix} {
+      max-width: $max-width-1;
+    }
+    .mw2#{$postfix} {
+      max-width: $max-width-2;
+    }
+    .mw3#{$postfix} {
+      max-width: $max-width-3;
+    }
+    .mw4#{$postfix} {
+      max-width: $max-width-4;
+    }
+    .mw5#{$postfix} {
+      max-width: $max-width-5;
+    }
+    .mw6#{$postfix} {
+      max-width: $max-width-6;
+    }
+    .mw7#{$postfix} {
+      max-width: $max-width-7;
+    }
+    .mw8#{$postfix} {
+      max-width: $max-width-8;
+    }
+    .mw9#{$postfix} {
+      max-width: $max-width-9;
+    }
+
+    /* Max Width String Properties */
+
+    .mwNone#{$postfix} {
+      max-width: none;
+    }
+  }
+}

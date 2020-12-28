@@ -1,0 +1,92 @@
+@import 'variables';
+
+.overflowVisible {
+  overflow: visible;
+}
+
+.overflowHidden {
+  overflow: hidden;
+}
+
+.overflowScroll {
+  overflow: scroll;
+}
+
+.overflowAuto {
+  overflow: auto;
+}
+
+.overflowXvisible {
+  overflow-x: visible;
+}
+
+.overflowXhidden {
+  overflow-x: hidden;
+}
+
+.overflowXscroll {
+  overflow-x: scroll;
+}
+
+.overflowXauto {
+  overflow-x: auto;
+}
+
+.overflowYvisible {
+  overflow-y: visible;
+}
+
+.overflowYhidden {
+  overflow-y: hidden;
+}
+
+.overflowYscroll {
+  overflow-y: scroll;
+}
+
+.overflowYauto {
+  overflow-y: auto;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .overflowVisible#{$postfix} {
+      overflow: visible;
+    }
+    .overflowHidden#{$postfix} {
+      overflow: hidden;
+    }
+    .overflowScroll#{$postfix} {
+      overflow: scroll;
+    }
+    .overflowAuto#{$postfix} {
+      overflow: auto;
+    }
+
+    .overflowXvisible#{$postfix} {
+      overflow-x: visible;
+    }
+    .overflowXhidden#{$postfix} {
+      overflow-x: hidden;
+    }
+    .overflowXscroll#{$postfix} {
+      overflow-x: scroll;
+    }
+    .overflowXauto#{$postfix} {
+      overflow-x: auto;
+    }
+
+    .overflowYvisible#{$postfix} {
+      overflow-y: visible;
+    }
+    .overflowYhidden#{$postfix} {
+      overflow-y: hidden;
+    }
+    .overflowYscroll#{$postfix} {
+      overflow-y: scroll;
+    }
+    .overflowYauto#{$postfix} {
+      overflow-y: auto;
+    }
+  }
+}

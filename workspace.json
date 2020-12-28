@@ -43,7 +43,12 @@
             "tsConfig": "apps/vubnguyen/tsconfig.app.json",
             "assets": [
               "apps/vubnguyen/src/favicon.ico",
-              "apps/vubnguyen/src/assets"
+              "apps/vubnguyen/src/assets",
+              {
+                "input": "libs/styles/src/css",
+                "glob": "*.css",
+                "output": "css"
+              }
             ],
             "styles": [],
             "scripts": [],
@@ -154,10 +159,13 @@
       "sourceRoot": "libs/styles/src",
       "projectType": "library",
       "targets": {
-        "build": {
+        "gen-css": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "commands": ["node-sass libs/styles/src/lib/ -o libs/styles/dist"],
+            "commands": [
+              "rimraf libs/styles/src/css",
+              "node-sass libs/styles/src/lib/global -o libs/styles/src/css  --output-style=compressed"
+            ],
             "cwd": "."
           }
         },
@@ -178,12 +186,13 @@
         "lint-styles": {
           "executor": "@nrwl/workspace:run-commands",
           "options": {
-            "command": "npx stylelint libs/styles/src/**/*.scss --fix"
+            "command": "stylelint libs/styles/src/**/*.scss --fix"
           }
         },
         "tsm-build": {
           "executor": "./tools/builders/typed-scss-modules:tsm-build",
           "options": {
+            "globPattern": "src/lib",
             "includePaths": ["token"]
           }
         }

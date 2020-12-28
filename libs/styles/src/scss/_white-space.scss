@@ -1,0 +1,27 @@
+@import 'variables';
+
+.wsNormal {
+  white-space: normal;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.pre {
+  white-space: pre;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .wsNormal#{$postfix} {
+      white-space: normal;
+    }
+    .nowrap#{$postfix} {
+      white-space: nowrap;
+    }
+    .pre#{$postfix} {
+      white-space: pre;
+    }
+  }
+}

@@ -39,3 +39,4 @@ testem.log
 Thumbs.db
 #for gh pages folder to deploy from
 /deploy/*
+libs/styles/dist

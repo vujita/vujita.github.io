@@ -1,0 +1,65 @@
+@import 'variables';
+
+.ba {
+  border-width: 1px;
+  border-style: solid;
+}
+
+.bt {
+  border-top-width: 1px;
+  border-top-style: solid;
+}
+
+.br {
+  border-right-width: 1px;
+  border-right-style: solid;
+}
+
+.bb {
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+
+.bl {
+  border-left-width: 1px;
+  border-left-style: solid;
+}
+
+.bn {
+  border-width: 0;
+  border-style: none;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .ba#{$postfix} {
+      border-width: 1px;
+      border-style: solid;
+    }
+
+    .bt#{$postfix} {
+      border-top-width: 1px;
+      border-top-style: solid;
+    }
+
+    .br#{$postfix} {
+      border-right-width: 1px;
+      border-right-style: solid;
+    }
+
+    .bb#{$postfix} {
+      border-bottom-width: 1px;
+      border-bottom-style: solid;
+    }
+
+    .bl#{$postfix} {
+      border-left-width: 1px;
+      border-left-style: solid;
+    }
+
+    .bn#{$postfix} {
+      border-width: 0;
+      border-style: none;
+    }
+  }
+}

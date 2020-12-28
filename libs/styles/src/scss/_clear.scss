@@ -1,0 +1,48 @@
+@import 'variables';
+
+.cf::before,
+.cf::after {
+  display: table;
+  content: ' ';
+}
+
+.cf::after {
+  clear: both;
+}
+
+.cf {
+  zoom: 1;
+}
+
+.cl {
+  clear: left;
+}
+
+.cr {
+  clear: right;
+}
+
+.cb {
+  clear: both;
+}
+
+.cn {
+  clear: none;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .cl#{$postfix} {
+      clear: left;
+    }
+    .cr#{$postfix} {
+      clear: right;
+    }
+    .cb#{$postfix} {
+      clear: both;
+    }
+    .cn#{$postfix} {
+      clear: none;
+    }
+  }
+}

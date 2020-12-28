@@ -1,0 +1,27 @@
+@import 'variables';
+
+.strike {
+  text-decoration: line-through;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.noUnderline {
+  text-decoration: none;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .strike#{$postfix} {
+      text-decoration: line-through;
+    }
+    .underline#{$postfix} {
+      text-decoration: underline;
+    }
+    .noUnderline#{$postfix} {
+      text-decoration: none;
+    }
+  }
+}

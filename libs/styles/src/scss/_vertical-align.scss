@@ -1,0 +1,34 @@
+@import 'variables';
+
+.vBase {
+  vertical-align: baseline;
+}
+
+.vMid {
+  vertical-align: middle;
+}
+
+.vTop {
+  vertical-align: top;
+}
+
+.vBtm {
+  vertical-align: bottom;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .vBase#{$postfix} {
+      vertical-align: baseline;
+    }
+    .vMid#{$postfix} {
+      vertical-align: middle;
+    }
+    .vTop#{$postfix} {
+      vertical-align: top;
+    }
+    .vBtm#{$postfix} {
+      vertical-align: bottom;
+    }
+  }
+}

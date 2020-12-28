@@ -1,0 +1,27 @@
+@import 'variables';
+
+.tracked {
+  letter-spacing: $letter-spacing-1;
+}
+
+.trackedTight {
+  letter-spacing: $letter-spacing-tight;
+}
+
+.trackedMega {
+  letter-spacing: $letter-spacing-2;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .tracked#{$postfix} {
+      letter-spacing: $letter-spacing-1;
+    }
+    .trackedTight#{$postfix} {
+      letter-spacing: $letter-spacing-tight;
+    }
+    .trackedMega#{$postfix} {
+      letter-spacing: $letter-spacing-2;
+    }
+  }
+}

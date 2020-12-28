@@ -1,0 +1,30 @@
+@import 'variables';
+
+.collapse {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.stripedLightSilver:nth-child(odd) {
+  background-color: $light-silver;
+}
+
+.stripedMoonGray:nth-child(odd) {
+  background-color: $moon-gray;
+}
+
+.stripedLightGray:nth-child(odd) {
+  background-color: $light-gray;
+}
+
+.stripedNearWhite:nth-child(odd) {
+  background-color: $near-white;
+}
+
+.stripeLight:nth-child(odd) {
+  background-color: $white-10;
+}
+
+.stripeDark:nth-child(odd) {
+  background-color: $black-10;
+}

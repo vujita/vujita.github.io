@@ -1,0 +1,29 @@
+@import 'variables';
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.fn {
+  float: none;
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    .fl#{$postfix} {
+      float: left;
+    }
+
+    .fr#{$postfix} {
+      float: right;
+    }
+
+    .fn#{$postfix} {
+      float: none;
+    }
+  }
+}

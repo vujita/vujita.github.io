@@ -1,0 +1,50 @@
+@import 'variables';
+
+.nestedCopyLineHeight p,
+.nestedCopyLineHeight ul,
+.nestedCopyLineHeight ol {
+  line-height: $line-height-copy;
+}
+
+.nestedHeadlineLineHeight h1,
+.nestedHeadlineLineHeight h2,
+.nestedHeadlineLineHeight h3,
+.nestedHeadlineLineHeight h4,
+.nestedHeadlineLineHeight h5,
+.nestedHeadlineLineHeight h6 {
+  line-height: $line-height-title;
+}
+
+.nestedListReset ul,
+.nestedListReset ol {
+  padding-left: 0;
+  margin-left: 0;
+  list-style-type: none;
+}
+
+.nestedCopyIndent p + p {
+  margin-top: $spacing-none;
+  margin-bottom: $spacing-none;
+  text-indent: $letter-spacing-1;
+}
+
+.nestedCopySeperator p + p {
+  margin-top: $spacing-copy-separator;
+}
+
+.nestedImg img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+}
+
+.nestedLinks a {
+  color: $blue;
+  transition: color 0.15s ease-in;
+}
+
+.nestedLinks a:hover,
+.nestedLinks a:focus {
+  color: $light-blue;
+  transition: color 0.15s ease-in;
+}

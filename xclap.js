@@ -41,6 +41,7 @@ const createDeployDir = () => {
 load({
   'build:all': [
     'clean',
+    'gen-css',
     concurrent('format:check:all', 'lint:all'),
     runManyForTarget('build', '--prod'),
   ],
@@ -49,6 +50,7 @@ load({
   clean,
   createDeployDir: ['test:all', createDeployDir],
   'e2e:all': [runManyForTarget('e2e')],
+  'gen-css': [runManyForTarget('gen-css')],
   'format:all': [runManyForTarget('format:write')],
   'format:check:all': [runManyForTarget('format:check')],
   'lint:all': [

@@ -154,6 +154,13 @@
       "sourceRoot": "libs/styles/src",
       "projectType": "library",
       "targets": {
+        "build": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "commands": ["node-sass libs/styles/src/lib/ -o libs/styles/dist"],
+            "cwd": "."
+          }
+        },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {

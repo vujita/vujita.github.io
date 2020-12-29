@@ -47,7 +47,7 @@
               {
                 "input": "libs/styles/src/css",
                 "glob": "*.css",
-                "output": "css"
+                "output": "assets/css"
               }
             ],
             "styles": [],

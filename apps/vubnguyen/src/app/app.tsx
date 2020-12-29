@@ -1,5 +1,4 @@
-import { ReactComponent as Logo } from '../assets/logo.svg';
-import { classnames as cn } from '@vubnguyen/styles';
+import { classnames as cn } from '@vubnguyen/styles/modules';
 
 export function App() {
   return (

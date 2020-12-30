@@ -1,0 +1,12 @@
+import React from 'react';
+import {
+    <%= cmpName %>
+} from './<%= fileName %>'
+import { render } from '@testing-library/react';
+
+describe('<%= cmpName %>', () => {
+  it('should render successfully', () => {
+    const { baseElement } = render(<<%= cmpName %> />);
+    expect(baseElement).toBeTruthy();
+  });
+});

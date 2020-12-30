@@ -9,6 +9,7 @@ import {
 import { libraryGenerator } from '@nrwl/react';
 import { Schema as ExtReactLibSchema } from '@nrwl/react/src/schematics/library/schema';
 import { Linter } from '@nrwl/workspace';
+import { pascalCase, snakeCase } from 'change-case';
 import { ReactLibSchema } from './schema';
 
 export default async function (host: Tree, schema: ReactLibSchema) {
@@ -27,8 +28,16 @@ export default async function (host: Tree, schema: ReactLibSchema) {
   await libraryGenerator(host, options);
   await formatFiles(host);
   const o = readProjectConfiguration(host, name);
+  const cmpName = pascalCase(name);
+  const fileName = snakeCase(name);
   // Copy overrides over
-  generateFiles(host, join(__dirname, 'files'), o.root, {});
+  generateFiles(host, join(__dirname, 'files'), o.root, {
+    name,
+    cmpName,
+    fileName,
+    tmpl: '',
+  });
+  await formatFiles(host);
   return () => {
     installPackagesTask(host);
   };

@@ -8,7 +8,8 @@
       "$default": {
         "$source": "argv",
         "index": 0
-      }
+      },
+      "x-prompt": "What would you like to name the library?"
     }
   },
   "required": ["name"],

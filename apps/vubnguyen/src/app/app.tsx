@@ -1,4 +1,4 @@
-import { classnames as cn } from '@vubnguyen/styles/modules';
+import { classnames as cn } from '@vubnguyen/styles';
 
 export function App() {
   return (

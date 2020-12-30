@@ -1,0 +1,11 @@
+import { classnames as cn } from '@vubnguyen/styles';
+
+export interface <%= cmpName %>Props {
+
+}
+
+export const <%= cmpName %>: React.FC<<%= cmpName %>Props> = (props) => {
+    return (
+        <div className={cn('dbg')}><%= cmpName %></div>
+    )
+}

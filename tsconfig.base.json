@@ -16,6 +16,7 @@
     "baseUrl": ".",
     "paths": {
       "@vubnguyen/classnames": ["libs/classnames/src/index.ts"],
+      "@vubnguyen/styles": ["libs/styles/src/index.ts"],
       "@vubnguyen/styles/*": ["libs/styles/src/*"]
     }
   },

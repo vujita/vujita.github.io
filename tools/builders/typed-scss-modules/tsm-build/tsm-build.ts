@@ -1,13 +1,13 @@
 import {
   BuilderContext,
-  createBuilder,
   BuilderHandlerFn,
   BuilderOutput,
+  createBuilder,
 } from '@angular-devkit/architect';
-import { join } from 'path';
 import { fork } from 'child_process';
-import { Schema } from './schema';
+import { join } from 'path';
 import { getProjectRoot } from '../../utils';
+import { Schema } from './schema';
 
 const createTSMOptions = (options: Schema): string[] => {
   const cmdArgs: string[] = [];

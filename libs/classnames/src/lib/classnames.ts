@@ -14,7 +14,9 @@ export default <T extends string = string>(
       const arg = classes[i];
       const argType = typeof arg;
       if (argType === 'number' || argType === 'string') {
-        const val = styleHash[arg as string] || arg;
+        const val = styleHash[arg as string]
+          ? (styleHash[arg as string] as string | undefined)
+          : (arg as string);
         if (val) {
           computedClasses.push(val);
         }
@@ -27,6 +29,7 @@ export default <T extends string = string>(
         for (const key in arg as Record<T, truthyOrFalsey>) {
           if ((arg as Record<T, truthyOrFalsey>)[key]) {
             const v = styleHash[key] || key;
+            // eslint-disable-next-line max-depth
             if (v) {
               computedClasses.push(v);
             }

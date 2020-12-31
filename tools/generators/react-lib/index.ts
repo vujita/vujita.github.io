@@ -1,16 +1,16 @@
-import { join } from 'path';
 import {
-  Tree,
   formatFiles,
-  installPackagesTask,
   generateFiles,
+  installPackagesTask,
   readProjectConfiguration,
+  Tree,
 } from '@nrwl/devkit';
 import { libraryGenerator } from '@nrwl/react';
 import { Schema as ExtReactLibSchema } from '@nrwl/react/src/schematics/library/schema';
 import { Linter } from '@nrwl/workspace';
 import { pascalCase, snakeCase } from 'change-case';
 import * as fp from 'lodash/fp';
+import { join } from 'path';
 import { ReactLibSchema } from './schema';
 
 const slashToDash = fp.pipe(fp.split('/'), fp.join('-'));

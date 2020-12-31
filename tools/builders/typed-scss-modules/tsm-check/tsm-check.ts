@@ -1,7 +1,7 @@
 import {
   BuilderContext,
-  createBuilder,
   BuilderHandlerFn,
+  createBuilder,
 } from '@angular-devkit/architect';
 import execa from 'execa';
 import { Schema } from '../tsm-build/schema';

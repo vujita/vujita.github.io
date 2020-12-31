@@ -37,7 +37,6 @@ const createDeployDir = () => {
     fs.copyFileSync(path.join(__dirname, f), path.join(ghDir, f));
   });
 };
-
 load({
   'build:all': [
     'clean',
@@ -55,6 +54,7 @@ load({
   'format:check:all': [runManyForTarget('format:check')],
   'lint:all': [
     concurrent('build:scss:types', 'prettier'),
+    'format:all',
     concurrent(
       runManyForTarget('lint', '--fix'),
       runManyForTarget('lint-styles', '--fix'),

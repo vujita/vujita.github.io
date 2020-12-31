@@ -32,6 +32,7 @@
     "format:check": "nx format:check",
     "format:check:all": "clap format:check:all",
     "format:write": "nx format:write",
+    "g": "nx workspace-generator",
     "help": "nx help",
     "lint": "nx workspace-lint && nx lint",
     "lint:all": "clap lint:all",

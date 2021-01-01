@@ -5,6 +5,7 @@
     "rvest.vs-code-prettier-eslint",
     "firsttris.vscode-jest-runner",
     "stylelint.vscode-stylelint",
-    "calvinhong.stylelint-fix"
+    "calvinhong.stylelint-fix",
+    "davidanson.vscode-markdownlint"
   ]
 }

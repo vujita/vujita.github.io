@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const fs = require('fs');
-const { load, env, exec, concurrent } = require('@xarc/run');
+const { load, exec, concurrent } = require('@xarc/run');
 const rimraf = require('rimraf');
 const copyDir = require('copy-dir');
 const ghPages = require('gh-pages');

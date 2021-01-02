@@ -10,29 +10,30 @@ const extendConfigs = [
   'kentcdodds/best-practices',
 ];
 const sharedRules = {
-  'react/jsx-uses-react': 'off',
-  'react/react-in-jsx-scope': 'off',
-  'prettier/prettier': 'error',
-  'sort-keys-fix/sort-keys-fix': 'error',
-  'testing-library/await-async-query': 'error',
-  'testing-library/no-await-sync-query': 'error',
-  'testing-library/no-debug': 'warn',
+  'jest-dom/prefer-checked': 'error',
+  'jest-dom/prefer-enabled-disabled': 'error',
+  'jest-dom/prefer-required': 'error',
   'jest/no-disabled-tests': 'warn',
   'jest/no-focused-tests': 'error',
   'jest/no-identical-title': 'error',
   'jest/prefer-to-have-length': 'warn',
   'jest/valid-expect': 'error',
-  'jest-dom/prefer-checked': 'error',
-  'jest-dom/prefer-enabled-disabled': 'error',
-  'jest-dom/prefer-required': 'error',
+  'prettier/prettier': 'error',
+  'react/jsx-uses-react': 'off',
+  'react/react-in-jsx-scope': 'off',
+  'sort-keys-fix/sort-keys-fix': 'error',
+  'testing-library/await-async-query': 'error',
+  'testing-library/no-await-sync-query': 'error',
+  'testing-library/no-debug': 'warn',
 };
 module.exports = {
   env: {
-    'jest/globals': true,
     browser: true,
     es6: true,
+    'jest/globals': true,
     node: true,
   },
+  extends: [...extendConfigs],
   ignorePatterns: ['**/*'],
   overrides: [
     {
@@ -43,21 +44,21 @@ module.exports = {
         '@nrwl/nx/enforce-module-boundaries': [
           'error',
           {
-            enforceBuildableLibDependency: true,
             allow: [],
             depConstraints: [
               {
-                sourceTag: '*',
                 onlyDependOnLibsWithTags: ['*'],
+                sourceTag: '*',
               },
             ],
+            enforceBuildableLibDependency: true,
           },
         ],
       },
     },
     {
-      files: ['*.ts', '*.tsx'],
       extends: ['plugin:@nrwl/nx/typescript', ...extendConfigs],
+      files: ['*.ts', '*.tsx'],
       parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.*?.json',
@@ -65,13 +66,11 @@ module.exports = {
       rules: { ...sharedRules },
     },
     {
-      files: ['*.js', '*.jsx'],
       extends: ['plugin:@nrwl/nx/javascript', ...extendConfigs],
+      files: ['*.js', '*.jsx'],
       rules: { ...sharedRules },
     },
   ],
-  extends: [...extendConfigs],
-  settings: { 'import/resolver': {} },
   plugins: [
     '@nrwl/nx',
     'sort-keys-fix',
@@ -82,6 +81,7 @@ module.exports = {
     'typescript-sort-keys',
     'sort-keys-fix',
   ],
-  rules: { ...sharedRules },
   root: true,
+  rules: { ...sharedRules },
+  settings: { 'import/resolver': {} },
 };

@@ -1,47 +1,134 @@
-const extendConfigs = ['prettier', 'prettier/react'];
+const forbidStylePropMessage = `
+  Please use a css rule or functional css rule.
+  Don't use style props
+`;
 
+const extendConfigs = [
+  'prettier',
+  'prettier/react',
+  'plugin:prettier/recommended',
+  'plugin:testing-library/recommended',
+  'plugin:jest-dom/recommended',
+  'plugin:react/recommended',
+  'plugin:typescript-sort-keys/recommended',
+  'kentcdodds',
+  'kentcdodds/react',
+  'kentcdodds/best-practices',
+];
+const sharedRules = {
+  'jest-dom/prefer-checked': 'error',
+  'jest-dom/prefer-enabled-disabled': 'error',
+  'jest-dom/prefer-required': 'error',
+  'jest/no-disabled-tests': 'warn',
+  'jest/no-focused-tests': 'error',
+  'jest/no-identical-title': 'error',
+  'jest/prefer-to-have-length': 'warn',
+  'jest/valid-expect': 'error',
+  'prettier/prettier': 'error',
+  'react/forbid-component-props': [
+    'error',
+    {
+      forbid: [
+        {
+          message: forbidStylePropMessage,
+          propName: 'style',
+        },
+      ],
+    },
+  ],
+  'react/forbid-dom-props': [
+    'error',
+    {
+      forbid: [
+        {
+          message: forbidStylePropMessage,
+          propName: 'style',
+        },
+      ],
+    },
+  ],
+  'react/jsx-uses-react': 'off',
+  'react/react-in-jsx-scope': 'off',
+  'sort-keys-fix/sort-keys-fix': 'error',
+  'testing-library/await-async-query': 'error',
+  'testing-library/no-await-sync-query': 'error',
+  'testing-library/no-debug': 'warn',
+};
 module.exports = {
+  env: {
+    browser: true,
+    es6: true,
+    'jest/globals': true,
+    node: true,
+  },
+  extends: [...extendConfigs],
   ignorePatterns: ['**/*'],
   overrides: [
     {
       files: ['*.ts', '*.tsx', '*.js', '*.jsx'],
+
       rules: {
+        ...sharedRules,
         '@nrwl/nx/enforce-module-boundaries': [
           'error',
           {
-            enforceBuildableLibDependency: true,
             allow: [],
             depConstraints: [
               {
-                sourceTag: '*',
                 onlyDependOnLibsWithTags: ['*'],
+                sourceTag: '*',
               },
             ],
+            enforceBuildableLibDependency: true,
           },
         ],
       },
     },
     {
-      files: ['*.ts', '*.tsx'],
       extends: ['plugin:@nrwl/nx/typescript', ...extendConfigs],
+      files: ['*.ts', '*.tsx'],
+      parser: '@typescript-eslint/parser',
       parserOptions: {
         project: './tsconfig.*?.json',
       },
-      rules: {},
+      rules: { ...sharedRules },
     },
     {
-      files: ['*.js', '*.jsx'],
       extends: ['plugin:@nrwl/nx/javascript', ...extendConfigs],
-      rules: {},
+      files: ['*.js', '*.jsx'],
+      rules: { ...sharedRules },
+    },
+    {
+      extends: ['plugin:@nrwl/nx/javascript', ...extendConfigs],
+      files: ['.eslintrc.js', 'xclap.js'],
+      rules: {
+        ...sharedRules,
+        '@typescript-eslint/no-var-requires': 'off',
+      },
     },
   ],
-  extends: [...extendConfigs],
-  plugins: ['@nrwl/nx', 'sort-keys-fix', 'prettier'],
-  rules: {
-    'react/jsx-uses-react': 'off',
-    'react/react-in-jsx-scope': 'off',
-    'prettier/prettier': 'error',
-    'sort-keys-fix/sort-keys-fix': 'error',
-  },
+  plugins: [
+    '@nrwl/nx',
+    'jest',
+    'jest-dom',
+    'prettier',
+    'react',
+    'sort-keys-fix',
+    'testing-library',
+    'typescript-sort-keys',
+  ],
   root: true,
+  rules: { ...sharedRules },
+  settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/ignore': ['.scss', '.css'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
 };

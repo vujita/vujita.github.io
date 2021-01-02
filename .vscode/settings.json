@@ -7,6 +7,5 @@
     "enable": true
   },
   "eslint.format.enable": true,
-  "eslint.lintTask.enable": true,
-  "eslint.validate": ["javascript"]
+  "eslint.lintTask.enable": true
 }

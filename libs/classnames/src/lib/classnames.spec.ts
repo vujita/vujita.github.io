@@ -2,13 +2,13 @@
 import classnames, { ClassValue } from './classnames';
 
 interface StyleHash {
+  bgWhite: 'backgroundColorWhite';
   test: 'randomhashone';
   test1: 'randomhashtwo';
-  bgWhite: 'backgroundColorWhite';
 }
 interface TestSetup<T extends string = string> {
-  name: string;
   args: ClassValue<T>[];
+  name: string;
   value: string;
 }
 describe('Classnames', () => {
@@ -38,25 +38,25 @@ describe('Classnames', () => {
       value: `${styleHash.test} ${styleHash.test1}`,
     },
     {
-      // @ts-ignore
+      // @ts-expect-error
       args: ['a', 'b', 'c'],
       name: 'should reflect keys when missing in style hash',
       value: 'a b c',
     },
     {
-      // @ts-ignore
+      // @ts-expect-error
       args: ['vu', { test: false }],
       name: 'reflect values: "vu", {test:false}',
       value: 'vu',
     },
     {
-      // @ts-ignore
+      // @ts-expect-error
       args: ['vu', { test: true, test1: false }],
       name: `reflect values 'vu', {test: true, test1: false}`,
       value: `vu ${styleHash.test}`,
     },
     {
-      // @ts-ignore
+      // @ts-expect-error
       args: ['vu', { nguyen: true, test: true, test1: false }],
       name: `relect values: ['vu', { nguyen: true, test: true, test1: false }]`,
       value: `vu nguyen ${styleHash.test}`,

@@ -1,6 +1,8 @@
-const { load, exec, concurrent } = require('@xarc/run');
+/* eslint-disable no-console */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const fs = require('fs');
+const { load, env, exec, concurrent } = require('@xarc/run');
 const rimraf = require('rimraf');
 const copyDir = require('copy-dir');
 const ghPages = require('gh-pages');
@@ -46,28 +48,35 @@ load({
     runManyForTarget('build', '--prod'),
   ],
   'build:scss:types': exec('nx run-many --target=tsm-build --all'),
-  'clean:cache': exec('rimraf node_modules/.cache'),
   clean,
+  'clean:cache': exec('rimraf node_modules/.cache'),
   createDeployDir: ['test:all', createDeployDir],
   'e2e:all': [runManyForTarget('e2e')],
-  'gen-css': [runManyForTarget('gen-css')],
+  'e2e:headless:all': [runManyForTarget('e2e', '--headless')],
   'format:all': [runManyForTarget('format:write')],
   'format:check:all': [runManyForTarget('format:check')],
+  'gen-css': [runManyForTarget('gen-css')],
   'lint:all': [
     concurrent('build:scss:types', 'prettier'),
+    'format:all',
     concurrent(
       runManyForTarget('lint', '--fix'),
       runManyForTarget('lint-styles', '--fix'),
     ),
   ],
   prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
-  stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   prod: exec('nx serve --configuration=production'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
   serve: concurrent(exec('nx serve'), 'watch:scss:types'),
+  stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   'test:all': [
     'build:all',
     concurrent('format:check:all', 'test:unit', 'e2e:all'),
+  ],
+  'test:ci:all': [
+    'clean:cache',
+    'build:all',
+    concurrent('format:check:all', 'test:unit', 'e2e:headless:all'),
   ],
   'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
   'watch:scss:types': concurrent(

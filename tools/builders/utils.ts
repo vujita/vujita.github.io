@@ -1,6 +1,3 @@
-import { join, resolve as resolvePath } from 'path';
-import { Observable, of, zip } from 'rxjs';
-import { filter, first, map } from 'rxjs/operators';
 import {
   BuilderContext,
   BuilderOutput,
@@ -9,6 +6,9 @@ import {
 } from '@angular-devkit/architect';
 import { NxJson } from '@nrwl/workspace';
 import * as fs from 'fs-extra';
+import { join, resolve as resolvePath } from 'path';
+import { Observable, of, zip } from 'rxjs';
+import { filter, first, map } from 'rxjs/operators';
 
 /**
  * (@see https://github.com/nrwl/nx/blob/master/packages/node/src/builders/execute/execute.impl.ts#L162)

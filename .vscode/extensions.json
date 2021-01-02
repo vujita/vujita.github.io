@@ -1,9 +1,12 @@
 {
   "recommendations": [
-    "ms-vscode.vscode-typescript-tslint-plugin",
+    "calvinhong.stylelint-fix",
+    "davidanson.vscode-markdownlint",
+    "editorconfig.editorconfig",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
-    "stylelint.vscode-stylelint",
-    "calvinhong.stylelint-fix"
+    "ms-vscode.vscode-typescript-tslint-plugin",
+    "rvest.vs-code-prettier-eslint",
+    "stylelint.vscode-stylelint"
   ]
 }

@@ -1,9 +1,15 @@
+const forbidStylePropMessage = `
+  Please use a css rule or functional css rule.
+  Don't use style props
+`;
+
 const extendConfigs = [
   'prettier',
   'prettier/react',
   'plugin:prettier/recommended',
   'plugin:testing-library/recommended',
   'plugin:jest-dom/recommended',
+  'plugin:react/recommended',
   'plugin:typescript-sort-keys/recommended',
   'kentcdodds',
   'kentcdodds/react',
@@ -19,6 +25,28 @@ const sharedRules = {
   'jest/prefer-to-have-length': 'warn',
   'jest/valid-expect': 'error',
   'prettier/prettier': 'error',
+  'react/forbid-component-props': [
+    'error',
+    {
+      forbid: [
+        {
+          message: forbidStylePropMessage,
+          propName: 'style',
+        },
+      ],
+    },
+  ],
+  'react/forbid-dom-props': [
+    'error',
+    {
+      forbid: [
+        {
+          message: forbidStylePropMessage,
+          propName: 'style',
+        },
+      ],
+    },
+  ],
   'react/jsx-uses-react': 'off',
   'react/react-in-jsx-scope': 'off',
   'sort-keys-fix/sort-keys-fix': 'error',
@@ -84,11 +112,23 @@ module.exports = {
     'jest',
     'jest-dom',
     'prettier',
+    'react',
     'sort-keys-fix',
     'testing-library',
     'typescript-sort-keys',
   ],
   root: true,
   rules: { ...sharedRules },
-  settings: { 'import/resolver': {} },
+  settings: {
+    'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
+    'import/ignore': ['.scss', '.css'],
+    'import/parsers': {
+      '@typescript-eslint/parser': ['.ts', '.tsx'],
+    },
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
+  },
 };

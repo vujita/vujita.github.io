@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const fs = require('fs');
-const { load, exec, concurrent } = require('@xarc/run');
+const { load, env, exec, concurrent } = require('@xarc/run');
 const rimraf = require('rimraf');
 const copyDir = require('copy-dir');
 const ghPages = require('gh-pages');
@@ -52,6 +52,7 @@ load({
   'clean:cache': exec('rimraf node_modules/.cache'),
   createDeployDir: ['test:all', createDeployDir],
   'e2e:all': [runManyForTarget('e2e')],
+  'e2e:headless:all': [runManyForTarget('e2e', '--headless')],
   'format:all': [runManyForTarget('format:write')],
   'format:check:all': [runManyForTarget('format:check')],
   'gen-css': [runManyForTarget('gen-css')],
@@ -71,6 +72,11 @@ load({
   'test:all': [
     'build:all',
     concurrent('format:check:all', 'test:unit', 'e2e:all'),
+  ],
+  'test:ci:all': [
+    'clean:cache',
+    'build:all',
+    concurrent('format:check:all', 'test:unit', 'e2e:headless:all'),
   ],
   'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
   'watch:scss:types': concurrent(

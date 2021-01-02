@@ -8,7 +8,7 @@ import {
 import { libraryGenerator } from '@nrwl/react';
 import { Schema as ExtReactLibSchema } from '@nrwl/react/src/schematics/library/schema';
 import { Linter } from '@nrwl/workspace';
-import { pascalCase, snakeCase } from 'change-case';
+import { paramCase, pascalCase } from 'change-case';
 import * as fp from 'lodash/fp';
 import { join } from 'path';
 import { ReactLibSchema } from './schema';
@@ -32,7 +32,7 @@ export default async function (host: Tree, schema: ReactLibSchema) {
   await formatFiles(host);
   const o = readProjectConfiguration(host, slashToDash(name));
   const cmpName = pascalCase(name);
-  const fileName = snakeCase(name);
+  const fileName = paramCase(name);
   // Copy overrides over
   generateFiles(host, join(__dirname, 'files'), o.root, {
     name,

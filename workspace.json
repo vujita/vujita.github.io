@@ -26,12 +26,6 @@
       "projectType": "application",
       "generators": {},
       "targets": {
-        "tsm-build": {
-          "executor": "./tools/builders/typed-scss-modules:tsm-build",
-          "options": {
-            "includePaths": ["token"]
-          }
-        },
         "build": {
           "executor": "@nrwl/web:build",
           "outputs": ["{options.outputPath}"],
@@ -187,13 +181,6 @@
           "executor": "@nrwl/workspace:run-commands",
           "options": {
             "command": "stylelint libs/styles/src/**/*.scss --fix"
-          }
-        },
-        "tsm-build": {
-          "executor": "./tools/builders/typed-scss-modules:tsm-build",
-          "options": {
-            "globPattern": "src/lib",
-            "includePaths": ["token"]
           }
         }
       }

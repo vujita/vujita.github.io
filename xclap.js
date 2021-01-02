@@ -44,6 +44,7 @@ load({
   'build:all': [
     'clean',
     'gen-css',
+    'build:scss:types',
     concurrent('format:check:all', 'lint:all'),
     runManyForTarget('build', '--prod'),
   ],

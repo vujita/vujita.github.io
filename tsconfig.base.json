@@ -18,7 +18,8 @@
     "paths": {
       "@vubnguyen/classnames": ["libs/classnames/src/index.ts"],
       "@vubnguyen/styles": ["libs/styles/src/index.ts"],
-      "@vubnguyen/styles/*": ["libs/styles/src/*"]
+      "@vubnguyen/styles/*": ["libs/styles/src/*"],
+      "@vubnguyen/ui/layout": ["libs/ui/layout/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

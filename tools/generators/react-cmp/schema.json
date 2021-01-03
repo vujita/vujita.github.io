@@ -1,0 +1,26 @@
+{
+  "$schema": "http://json-schema.org/schema",
+  "cli": "nx",
+  "id": "react-cmp",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "React Component name",
+      "$default": {
+        "$source": "name"
+      },
+      "x-prompt": "What name would you like to use for the component?"
+    },
+    "project": {
+      "type": "string",
+      "description": "The name of the project.",
+      "alias": "p",
+      "$default": {
+        "$source": "project"
+      },
+      "x-prompt": "What is the name of the project for this component?"
+    }
+  },
+  "required": ["name", "project"],
+  "type": "object"
+}

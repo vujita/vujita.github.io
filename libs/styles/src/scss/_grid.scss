@@ -1,12 +1,5 @@
 @import 'variables';
 
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: #{$width-1 / 2};
-  margin-left: #{$width-1 / 2};
-}
-
 $columns: 12;
 
 @for $i from 1 through $columns {

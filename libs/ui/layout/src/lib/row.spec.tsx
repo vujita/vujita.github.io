@@ -1,6 +1,5 @@
 import { render } from '@testing-library/react';
 import { ClassNames } from '@vubnguyen/styles';
-import React from 'react';
 import { Row } from './row';
 
 describe('Layout component', () => {
@@ -8,10 +7,10 @@ describe('Layout component', () => {
     const { baseElement } = render(<Row />);
     expect(baseElement).toBeTruthy();
   });
-  it("should render with '.row' class", () => {
+  it("should render with '.flex.flexWrap' class", () => {
     const { baseElement, container } = render(<Row />);
     expect(baseElement).toBeTruthy();
-    expect(container.querySelector('.row')).toBeTruthy();
+    expect(container.querySelector('.flex.flexWrap')).toBeTruthy();
   });
   it('should render with extra classes', () => {
     const className: ClassNames = 'bClrblack';
@@ -19,7 +18,7 @@ describe('Layout component', () => {
     expect(baseElement).toBeTruthy();
     expect(
       container.querySelector(`.${className}`)?.classList.toString(),
-    ).toEqual('row bClrblack');
+    ).toEqual('flex flexWrap bClrblack');
   });
   it('should render children inside a div', () => {
     const testId = 'test-id';
@@ -29,7 +28,7 @@ describe('Layout component', () => {
       </Row>,
     );
     expect(baseElement).toBeTruthy();
-    const row = container.querySelector('.row') as HTMLDivElement;
+    const row = container.querySelector('.flex.flexWrap') as HTMLDivElement;
     expect(row).toBeTruthy();
     expect(row.firstChild).toBeTruthy();
     const rowChild = row.firstChild as HTMLDivElement;

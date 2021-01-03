@@ -47,14 +47,15 @@ load({
     'build:scss:types',
     concurrent('format:check:all', 'lint:all'),
     runManyForTarget('build', '--prod'),
+    'bundlesize',
   ],
-  // 'build:scss:types': exec('nx run-many --target=tsm-build --all'),
   'build:scss:types': [
     exec('rimraf libs/styles/src/**/*.d.ts'),
     exec(
       'tsm libs/styles/src/lib --exportType default --exportTypeInterface ClassesType',
     ),
   ],
+  bundlesize: 'bundlesize',
   clean,
   'clean:cache': exec('rimraf node_modules/.cache'),
   createDeployDir: ['test:all', createDeployDir],

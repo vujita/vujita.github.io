@@ -1,0 +1,26 @@
+@import 'variables';
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: #{$width-1 / 2};
+  margin-left: #{$width-1 / 2};
+}
+
+$columns: 12;
+
+@for $i from 1 through $columns {
+  .col#{$i} {
+    width: (100% / $i);
+  }
+}
+
+@each $media, $postfix in $breakpoint-map {
+  @media #{$media} {
+    @for $i from 1 through $columns {
+      .col#{$i}#{$postfix} {
+        width: (100% / $i);
+      }
+    }
+  }
+}

@@ -25,6 +25,7 @@
     "affected:test": "nx affected:test",
     "build": "nx build",
     "build:all": "clap build:all",
+    "bundlesize": "bundlesize",
     "dep-graph": "nx dep-graph",
     "e2e": "nx e2e",
     "e2e:all": "clap e2e:all",
@@ -94,6 +95,7 @@
     "@typescript-eslint/parser": "4.10.0",
     "@xarc/run": "^1.0.3",
     "babel-jest": "26.6.3",
+    "bundlesize": "^0.18.0",
     "copy-dir": "^1.3.0",
     "cypress": "^6.1.0",
     "dotenv": "8.2.0",
@@ -137,5 +139,39 @@
     "tslint": "~6.1.0",
     "typed-scss-modules": "^3.4.0",
     "typescript": "~4.1.3"
-  }
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/apps/vubnguyen/assets/css/styles.css",
+      "maxSize": "15 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/main.*.es5.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/main.*.esm.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/polyfills.*.es5.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/polyfills.*.esm.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/runtime.*.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/vendor.*.es5.js",
+      "maxSize": "50 kB"
+    },
+    {
+      "path": "./dist/apps/vubnguyen/vendor.*.esm.js",
+      "maxSize": "50 kB"
+    }
+  ]
 }

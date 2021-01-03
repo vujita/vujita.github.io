@@ -1458,7 +1458,6 @@ export type ClassesType = {
   rotate90Lg: string;
   rotate90Md: string;
   rotate90Ns: string;
-  row: string;
   sansSerif: string;
   selfBaseline: string;
   selfBaselineLg: string;

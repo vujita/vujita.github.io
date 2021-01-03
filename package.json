@@ -45,6 +45,7 @@
     "start": "clap serve",
     "test": "nx test",
     "test:all": "clap test:all",
+    "test:ci:all": "clap test:ci:all",
     "test:unit": "clap test:unit",
     "update": "nx migrate latest",
     "workspace-generator": "nx workspace-generator"

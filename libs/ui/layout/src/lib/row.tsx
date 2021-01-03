@@ -1,9 +1,9 @@
-import { ClassNames, classnames as cn } from '@vubnguyen/styles';
+import { classnames as cn, ClassValue } from '@vubnguyen/styles';
 import { ReactNode } from 'react';
 
 export interface RowProps {
   children?: ReactNode;
-  classNames?: ClassNames[];
+  classNames?: ClassValue[];
   id?: string;
 }
 

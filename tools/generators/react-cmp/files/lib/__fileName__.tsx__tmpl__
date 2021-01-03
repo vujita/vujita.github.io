@@ -4,8 +4,8 @@ export interface <%= cmpName %>Props {
   classnames?: ClassValue<ClassNames>[]
 }
 
-export const <%= cmpName %>: React.FC<<%= cmpName %>Props> = (props) => {
+export const <%= cmpName %>: React.FC<<%= cmpName %>Props> = ({classnames=[]}) => {
     return (
-        <div className={cn('dbg')}><%= cmpName %></div>
+        <div className={cn(...classnames)}><%= cmpName %></div>
     )
 }

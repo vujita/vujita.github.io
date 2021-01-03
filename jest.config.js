@@ -3,5 +3,6 @@ module.exports = {
     '<rootDir>/apps/vubnguyen',
     '<rootDir>/libs/classnames',
     '<rootDir>/libs/styles',
+    '<rootDir>/libs/ui/layout',
   ],
 };

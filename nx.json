@@ -27,6 +27,9 @@
     },
     "styles": {
       "tags": []
+    },
+    "ui-layout": {
+      "tags": ["ui-lib"]
     }
   },
   "tasksRunnerOptions": {

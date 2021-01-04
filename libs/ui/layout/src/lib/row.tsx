@@ -13,16 +13,19 @@ export const Row = ({
   children,
   classNames = [],
   noGutters,
-}: RowProps): JSX.Element => (
-  <div
-    className={cn(
-      ...row,
-      // Gutters -0.5rem margin-(left/right)
-      { nl2: !!noGutters, nr2: !!noGutters },
-      ...classNames,
-    )}
-    id={id}
-  >
-    {children}
-  </div>
-);
+}: RowProps): JSX.Element => {
+  const gutter = !noGutters;
+  return (
+    <div
+      className={cn(
+        ...row,
+        // Gutters -0.5rem margin-(left/right)
+        { nl2: gutter, nr2: gutter },
+        ...classNames,
+      )}
+      id={id}
+    >
+      {children}
+    </div>
+  );
+};

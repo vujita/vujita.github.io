@@ -79,11 +79,11 @@
 }
 
 .wPthird {
-  width: (100% / 3);
+  width: to-fixed((100% / 3), 2);
 }
 
 .wPtwoThirds {
-  width: (100% / 1.5);
+  width: to-fixed((100% / 1.5), 2);
 }
 
 .wAuto {
@@ -154,10 +154,10 @@
     }
 
     .wPthird#{$postfix} {
-      width: (100% / 3);
+      width: to-fixed((100% / 3), 2);
     }
     .wPtwoThirds#{$postfix} {
-      width: (100% / 1.5);
+      width: to-fixed((100% / 1.5), 2);
     }
     .wAuto#{$postfix} {
       width: auto;

@@ -18,7 +18,7 @@ describe('Layout component', () => {
     expect(baseElement).toBeTruthy();
     expect(
       container.querySelector(`.${className}`)?.classList.toString(),
-    ).toEqual('flex flexWrap bClrblack');
+    ).toMatchInlineSnapshot(`"flex flexWrap nl2 nr2 bClrblack"`);
   });
   it('should render children inside a div', () => {
     const testId = 'test-id';

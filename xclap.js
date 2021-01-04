@@ -2,10 +2,13 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const fs = require('fs');
-const { load, exec, concurrent } = require('@xarc/run');
+const { load, exec, concurrent, serial } = require('@xarc/run');
 const rimraf = require('rimraf');
 const copyDir = require('copy-dir');
 const ghPages = require('gh-pages');
+const waitOn = require('wait-on');
+
+const waitUrl = (url) => waitOn({ resources: [url] });
 
 const runManyForTarget = (target, ...options) =>
   exec(
@@ -75,7 +78,14 @@ load({
   prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
   prod: exec('nx serve --configuration=production'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],
-  serve: concurrent(exec('nx serve'), 'watch:scss:types'),
+  serve: concurrent(
+    exec('nx serve'),
+    'watch:scss:types',
+    serial(
+      () => waitUrl('http://localhost:4200/'),
+      exec('open http://localhost:4200/'),
+    ),
+  ),
   stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   'test:all': [
     'build:all',
@@ -88,7 +98,9 @@ load({
   ],
   'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
   'watch:scss:types': concurrent(
-    exec('nx run vubnguyen:tsm-build --watch'),
-    exec('nx run styles:tsm-build --watch'),
+    'build:scss:types',
+    exec(
+      'tsm libs/styles/src/lib --exportType default --exportTypeInterface ClassesType',
+    ),
   ),
 });

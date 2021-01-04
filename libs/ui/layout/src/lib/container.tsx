@@ -14,7 +14,7 @@ export const Container: React.FC<ContainerProps> = ({
   children,
 }) => {
   return (
-    <div id={id} className={cn(...classnames, ...container)}>
+    <div id={id} className={cn(...container, ...classnames)}>
       {children}
     </div>
   );

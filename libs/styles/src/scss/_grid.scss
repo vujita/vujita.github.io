@@ -4,7 +4,16 @@ $columns: 12;
 
 @for $i from 1 through $columns {
   .col#{$i} {
-    width: (100% / $i);
+    max-width: to-fixed((100% / $i), 2);
+
+    @if ($i == $columns) {
+      flex-basis: 0;
+      flex-grow: 1;
+    }
+
+    @else {
+      flex-basis: to-fixed((100% / ($columns - $i)), 2);
+    }
   }
 }
 
@@ -12,7 +21,16 @@ $columns: 12;
   @media #{$media} {
     @for $i from 1 through $columns {
       .col#{$i}#{$postfix} {
-        width: (100% / $i);
+        max-width: to-fixed((100% / $i), 2);
+
+        @if ($i == $columns) {
+          flex-basis: 0;
+          flex-grow: 1;
+        }
+
+        @else {
+          flex-basis: to-fixed((100% / ($columns - $i)), 2);
+        }
       }
     }
   }

@@ -96,7 +96,17 @@ load({
     'build:all',
     concurrent('format:check:all', 'test:unit', 'e2e:headless:all'),
   ],
-  'test:unit': [exec('rimraf coverage'), runManyForTarget('test')],
+  'test:unit': [
+    'clean:cache',
+    exec('rimraf coverage'),
+    runManyForTarget('test'),
+  ],
+  'test:unit:update': [
+    'clean:cache',
+    'clean',
+    exec('jest --clearCache'),
+    runManyForTarget('test', '--updateSnapshot'),
+  ],
   'watch:scss:types': concurrent(
     'build:scss:types',
     exec(

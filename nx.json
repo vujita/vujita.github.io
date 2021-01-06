@@ -30,6 +30,9 @@
     },
     "ui-layout": {
       "tags": ["ui-lib"]
+    },
+    "ui-storybook": {
+      "tags": ["ui-lib"]
     }
   },
   "tasksRunnerOptions": {

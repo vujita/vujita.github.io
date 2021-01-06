@@ -4,5 +4,6 @@ module.exports = {
     '<rootDir>/libs/classnames',
     '<rootDir>/libs/styles',
     '<rootDir>/libs/ui/layout',
+    '<rootDir>/libs/ui/storybook',
   ],
 };

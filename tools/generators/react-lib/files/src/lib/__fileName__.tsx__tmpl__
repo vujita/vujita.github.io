@@ -1,11 +1,11 @@
-import { ClassNames, ClassValue,  classnames as cn } from '@vubnguyen/styles';
+import {  ClassValue,  classnames as cn } from '@vubnguyen/styles';
 
 export interface <%= cmpName %>Props {
-  classnames?: ClassValue<ClassNames>[]
+  classnames?: ClassValue[]
 }
 
-export const <%= cmpName %>: React.FC<<%= cmpName %>Props> = (props) => {
+export const <%= cmpName %>: React.FC<<%= cmpName %>Props> = ({classnames=[]}) => {
     return (
-        <div className={cn('dbg')}><%= cmpName %></div>
+        <div className={cn(...classnames)}><%= cmpName %></div>
     )
 }

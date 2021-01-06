@@ -3,7 +3,14 @@
     "outDir": "../../../dist/out-tsc",
     "types": ["node"]
   },
-  "exclude": ["**/*.spec.ts", "**/*.spec.tsx"],
+  "exclude": [
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/*.stories.ts",
+    "**/*.stories.js",
+    "**/*.stories.jsx",
+    "**/*.stories.tsx"
+  ],
   "extends": "./tsconfig.json",
   "files": [
     "../../../node_modules/@nrwl/react/typings/cssmodule.d.ts",

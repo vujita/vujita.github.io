@@ -85,3 +85,5 @@ export const Column: React.FC<ColumnProps> = ({
   }
   return <div className={cn(...cv, ...classnames)}>{children}</div>;
 };
+
+export default Column;

@@ -83,11 +83,17 @@ load({
   serve: concurrent(
     exec('nx serve'),
     'watch:scss:types',
+    'storybook',
+    serial(
+      () => waitUrl('http://localhost:4400/'),
+      exec('open http://localhost:4400/'),
+    ),
     serial(
       () => waitUrl('http://localhost:4200/'),
       exec('open http://localhost:4200/'),
     ),
   ),
+  storybook: exec('nx run ui-storybook:storybook'),
   stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   'test:all': [
     'build:all',

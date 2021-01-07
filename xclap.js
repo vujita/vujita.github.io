@@ -8,13 +8,15 @@ const copyDir = require('copy-dir');
 const ghPages = require('gh-pages');
 const waitOn = require('wait-on');
 
+const isCI = process.env.CI === 'true';
+console.log('isCI', isCI);
 const waitUrl = (url) => waitOn({ resources: [url] });
 
 const runManyForTarget = (target, ...options) =>
   exec(
     `nx run-many --target="${target}" --all --parallel${
-      options.length > 0 ? ' ' : ''
-    }${options.join(' ')}`,
+      isCI ? ' --skip-nx-cache' : ''
+    }${options.length > 0 ? ' ' : ''}${options.join(' ')}`,
   );
 const ghDir = path.join(__dirname, 'deploy');
 const publishGhFolder = () => {
@@ -27,7 +29,7 @@ const publishGhFolder = () => {
   });
 };
 const clean = [exec('rimraf dist tmp coverage')];
-if (process.env.CI) {
+if (isCI) {
   clean.push('clean:cache');
 }
 const createDeployDir = () => {
@@ -81,11 +83,17 @@ load({
   serve: concurrent(
     exec('nx serve'),
     'watch:scss:types',
+    'storybook',
+    serial(
+      () => waitUrl('http://localhost:4400/'),
+      exec('open http://localhost:4400/'),
+    ),
     serial(
       () => waitUrl('http://localhost:4200/'),
       exec('open http://localhost:4200/'),
     ),
   ),
+  storybook: exec('nx run ui-storybook:storybook'),
   stylelint: exec('stylelint "**/*.{css,scss}" --fix'),
   'test:all': [
     'build:all',

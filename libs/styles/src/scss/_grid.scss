@@ -5,14 +5,10 @@ $columns: 12;
 @for $i from 1 through $columns {
   .col#{$i} {
     max-width: to-fixed((100% / $i), 2);
+    flex-basis: to-fixed((100% / $i), 2);
 
-    @if ($i == $columns) {
-      flex-basis: 0;
+    @if ($i == 1) {
       flex-grow: 1;
-    }
-
-    @else {
-      flex-basis: to-fixed((100% / ($columns - $i)), 2);
     }
   }
 }
@@ -22,14 +18,10 @@ $columns: 12;
     @for $i from 1 through $columns {
       .col#{$i}#{$postfix} {
         max-width: to-fixed((100% / $i), 2);
+        flex-basis: to-fixed((100% / $i), 2);
 
-        @if ($i == $columns) {
-          flex-basis: 0;
+        @if ($i == 1) {
           flex-grow: 1;
-        }
-
-        @else {
-          flex-basis: to-fixed((100% / ($columns - $i)), 2);
         }
       }
     }

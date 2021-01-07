@@ -20,7 +20,8 @@
       "@vubnguyen/classnames": ["libs/classnames/src/index.ts"],
       "@vubnguyen/styles": ["libs/styles/src/index.ts"],
       "@vubnguyen/styles/*": ["libs/styles/src/*"],
-      "@vubnguyen/ui/layout": ["libs/ui/layout/src/index.ts"]
+      "@vubnguyen/ui/layout": ["libs/ui/layout/src/index.ts"],
+      "@vubnguyen/ui/storybook": ["libs/ui/storybook/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

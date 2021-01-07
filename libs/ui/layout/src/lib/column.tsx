@@ -81,7 +81,9 @@ export const Column: React.FC<ColumnProps> = ({
     cv.push(`col${md}Md` as ColClassNames);
   }
   if (ns) {
-    cv.push(`col${ns}Nd` as ColClassNames);
+    cv.push(`col${ns}Ns` as ColClassNames);
   }
   return <div className={cn(...cv, ...classnames)}>{children}</div>;
 };
+
+export default Column;

@@ -77,6 +77,7 @@ load({
       runManyForTarget('lint-styles', '--fix'),
     ),
   ],
+  postinstall: [exec('patch-package'), 'test:ci:all'],
   prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
   prod: exec('nx serve --configuration=production'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],

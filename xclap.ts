@@ -1,18 +1,19 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-const fs = require('fs');
-const { load, exec, concurrent, serial } = require('@xarc/run');
-const rimraf = require('rimraf');
+import * as fs from 'fs';
+import * as ghPages from 'gh-pages';
+import * as path from 'path';
+import * as rimraf from 'rimraf';
+import * as waitOn from 'wait-on';
+
 const copyDir = require('copy-dir');
-const ghPages = require('gh-pages');
-const waitOn = require('wait-on');
+const { load, exec, concurrent, serial } = require('@xarc/run');
 
 const isCI = process.env.CI === 'true';
 console.log('isCI', isCI);
-const waitUrl = (url) => waitOn({ resources: [url] });
+const waitUrl = (url: string) => waitOn({ resources: [url] });
 
-const runManyForTarget = (target, ...options) =>
+const runManyForTarget = (target: string, ...options: string[]) =>
   exec(
     `nx run-many --target="${target}" --all --parallel${
       isCI ? ' --skip-nx-cache' : ''
@@ -77,6 +78,7 @@ load({
       runManyForTarget('lint-styles', '--fix'),
     ),
   ],
+  postinstall: [exec('patch-package')],
   prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
   prod: exec('nx serve --configuration=production'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],

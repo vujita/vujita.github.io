@@ -4,6 +4,7 @@ module.exports = {
     require('prettier-plugin-organize-imports'),
     require('prettier-plugin-packagejson'),
     require('prettier-plugin-sort-json'),
+    require('prettier-plugin-packagejson'),
   ],
   singleQuote: true,
   trailingComma: 'all',

@@ -20,7 +20,7 @@ const runManyForTarget = (target: string, ...options: string[]) =>
   );
 const ghDir = path.join(__dirname, 'deploy');
 const publishGhFolder = () => {
-  ghPages.publish(ghDir, (err: typeof Error) => {
+  ghPages.publish(ghDir, (err: unknown) => {
     if (err) {
       console.log('publish error occurred', err);
     } else {

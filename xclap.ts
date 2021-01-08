@@ -1,12 +1,13 @@
 /* eslint-disable no-console */
 /* eslint-disable @typescript-eslint/no-var-requires */
-const path = require('path');
-const fs = require('fs');
-const { load, exec, concurrent, serial } = require('@xarc/run');
-const rimraf = require('rimraf');
+import * as fs from 'fs';
+import * as ghPages from 'gh-pages';
+import * as path from 'path';
+import * as rimraf from 'rimraf';
+import * as waitOn from 'wait-on';
+
 const copyDir = require('copy-dir');
-const ghPages = require('gh-pages');
-const waitOn = require('wait-on');
+const { load, exec, concurrent, serial } = require('@xarc/run');
 
 const isCI = process.env.CI === 'true';
 console.log('isCI', isCI);
@@ -20,7 +21,7 @@ const runManyForTarget = (target: string, ...options: string[]) =>
   );
 const ghDir = path.join(__dirname, 'deploy');
 const publishGhFolder = () => {
-  ghPages.publish(ghDir, (err: unknown) => {
+  ghPages.publish(ghDir, (err) => {
     if (err) {
       console.log('publish error occurred', err);
     } else {
@@ -77,7 +78,7 @@ load({
       runManyForTarget('lint-styles', '--fix'),
     ),
   ],
-  postinstall: [exec('patch-package'), 'test:ci:all'],
+  postinstall: [exec('patch-package')],
   prettier: [exec('prettier --write .'), 'stylelint', 'format:all'],
   prod: exec('nx serve --configuration=production'),
   'publish:gh-pages': ['createDeployDir', publishGhFolder],

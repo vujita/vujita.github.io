@@ -10,9 +10,9 @@ const waitOn = require('wait-on');
 
 const isCI = process.env.CI === 'true';
 console.log('isCI', isCI);
-const waitUrl = (url) => waitOn({ resources: [url] });
+const waitUrl = (url: string) => waitOn({ resources: [url] });
 
-const runManyForTarget = (target, ...options) =>
+const runManyForTarget = (target: string, ...options: string[]) =>
   exec(
     `nx run-many --target="${target}" --all --parallel${
       isCI ? ' --skip-nx-cache' : ''
@@ -20,7 +20,7 @@ const runManyForTarget = (target, ...options) =>
   );
 const ghDir = path.join(__dirname, 'deploy');
 const publishGhFolder = () => {
-  ghPages.publish(ghDir, (err) => {
+  ghPages.publish(ghDir, (err: typeof Error) => {
     if (err) {
       console.log('publish error occurred', err);
     } else {

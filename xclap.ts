@@ -7,7 +7,7 @@ import * as rimraf from 'rimraf';
 import * as waitOn from 'wait-on';
 
 const copyDir = require('copy-dir');
-const { load, exec, concurrent, serial } = require('@xarc/run');
+const { load, exec, concurrent, serial, env } = require('@xarc/run');
 
 const isCI = process.env.CI === 'true';
 console.log('isCI', isCI);
@@ -61,7 +61,7 @@ load({
       'tsm libs/styles/src/lib --exportType default --exportTypeInterface ClassesType',
     ),
   ],
-  bundlesize: 'bundlesize',
+  bundlesize: [env({ GITHUB_TOKEN: '' }), exec('bundlesize')],
   clean,
   'clean:cache': exec('rimraf node_modules/.cache'),
   createDeployDir: ['test:all', createDeployDir],

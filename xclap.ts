@@ -11,6 +11,7 @@ const { load, exec, concurrent, serial, env } = require('@xarc/run');
 
 const isCI = process.env.CI === 'true';
 console.log('isCI', isCI);
+const isWorkspace = !!process.env.GITHUB_CODESPACE_TOKEN;
 const waitUrl = (url: string) => waitOn({ resources: [url] });
 
 const runManyForTarget = (target: string, ...options: string[]) =>
@@ -88,11 +89,15 @@ load({
     'storybook',
     serial(
       () => waitUrl('http://localhost:4400/'),
-      exec('open http://localhost:4400/'),
+      !isWorkspace
+        ? exec('open http://localhost:4400/')
+        : exec('echo "storybook ready"'),
     ),
     serial(
       () => waitUrl('http://localhost:4200/'),
-      exec('open http://localhost:4200/'),
+      !isWorkspace
+        ? exec('open http://localhost:4200/')
+        : exec('echo "app ready"'),
     ),
   ),
   storybook: exec('nx run ui-storybook:storybook'),

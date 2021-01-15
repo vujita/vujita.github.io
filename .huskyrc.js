@@ -9,6 +9,6 @@ module.exports = {
       'git add package.json',
       'lint-staged --allow-empty',
     ]),
-    'pre-push': 'yarn test:all',
+    'pre-push': 'yarn test:ci:all',
   },
 };
